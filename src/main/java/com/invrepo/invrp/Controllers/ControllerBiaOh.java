@@ -16,10 +16,31 @@ public class ControllerBiaOh {
 	
 	@Autowired
 	ServiceBatchBiaOh ServSbbo;
+	
 	@GetMapping("/biaoh/getbiaohall")
 	public List<BatchBiaOh> getBiaOh(){
 		//System.out.println("testbbbb");
         return ServSbbo.getBiaOhAll();
     }
+	
+	@GetMapping("/biaoh/getbiaohlistDay")
+	public List<BatchBiaOh> getBatchOhListDay(String day){
+		return ServSbbo.getBatchOhByDay(day);
+	}
+	
+	@GetMapping("/biaoh/getbiaohlistmonth")
+	public List<BatchBiaOh> getBatchOhListMonth(String month){
+		return ServSbbo.getBatchOhByMonth(month);
+	}
+	
+	@GetMapping("/biaoh/getbiaohnobatch")
+	public List<BatchBiaOh> getBbohNoBatch(String nobatch){
+		return ServSbbo.getBbohNoBatch(nobatch);
+	}
+	
+	@GetMapping("/biaoh/getbiaohnobatchsingle")
+	public BatchBiaOh getBbohNoBatchSingle(String nobatch, Integer seq){
+		return ServSbbo.getBbohNoBatchSingle(nobatch, seq);
+	}
 
 }
