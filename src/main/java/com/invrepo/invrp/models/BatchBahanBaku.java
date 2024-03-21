@@ -1,5 +1,6 @@
 package com.invrepo.invrp.models;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -41,10 +42,10 @@ public class BatchBahanBaku {
     private String bbbSatCode;
 	
 	@Column(name="BBB_HARGA_SAT")
-	private Integer bbbHargaSat;
+	private BigInteger bbbHargaSat;
 	
 	@Column(name="BBB_TOTAL")
-	private Integer bbbTotal;
+	private BigInteger bbbTotal;
 	
 	@Column(name="BBB_CHGUSER",length=40)
     private String bbbChguser;

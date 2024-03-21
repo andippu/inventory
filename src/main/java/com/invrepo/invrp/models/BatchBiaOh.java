@@ -1,5 +1,6 @@
 package com.invrepo.invrp.models;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -38,13 +39,13 @@ public class BatchBiaOh {
 	private Date bbohTgl;
 	
 	@Column(name="BBOH_VALUE")
-    private Integer bbohValue;
+	private BigInteger bbohValue;
 	
 	@Column(name="BBOH_BOP")
-    private Integer bbohBop;
+	private BigInteger bbohBop;
 	
 	@Column(name="BBOH_TOTAL")
-    private Integer bbohTotal;
+	private BigInteger bbohTotal;
 	
 	@Column(name="BBOH_CHGUSER",length=40)
     private String bbohChguser;
