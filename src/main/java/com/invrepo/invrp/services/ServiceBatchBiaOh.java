@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.invrepo.invrp.models.BatchBahanBaku;
 import com.invrepo.invrp.models.BatchBiaOh;
 import com.invrepo.invrp.repository.IBatchBiaOh;
 
@@ -34,6 +35,11 @@ public class ServiceBatchBiaOh {
 	
 	public BatchBiaOh getBbohNoBatchSingle(String nobatch,Integer seq){
 		return RepoSbbo.findByBbohMbtNoBatchAndBbohSeq(nobatch, seq);		
+	}
+	
+	public String saveUpdateBiaOh(BatchBiaOh batchbiaoh) {
+		RepoSbbo.save(batchbiaoh);
+		return "Submit Successfully";
 	}
 	
 

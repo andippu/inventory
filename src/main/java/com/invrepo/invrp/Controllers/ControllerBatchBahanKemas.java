@@ -6,8 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.invrepo.invrp.models.BatchBahanBaku;
 import com.invrepo.invrp.models.BatchBahanKemas;
 import com.invrepo.invrp.services.ServiceBatchBahanKemas;
 
@@ -42,6 +45,12 @@ public class ControllerBatchBahanKemas {
 	@GetMapping("/bahankemas/getmbknobatchsingle")
 	public BatchBahanKemas getMbkNoBatchSingle (String nobatch, String code){
 		return ServSbbk.getMbkNoBatchSingle(nobatch, code);
+	}
+	
+	@PostMapping("/bahankemas/saveupdbatchkemas")
+	public String saveUpdateBahanKemas(@RequestBody BatchBahanKemas batchkemas) {
+		ServSbbk.saveUpdateBahanKemas(batchkemas);
+		return "Submit Successfully";
 	}
 	
 }

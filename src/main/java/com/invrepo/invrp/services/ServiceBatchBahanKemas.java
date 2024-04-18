@@ -39,5 +39,10 @@ public class ServiceBatchBahanKemas {
         return RepoSbbk.findByBbkMbtNoBatchAndBbkBkCode(nobatch, code);
     }
 	
+	public String saveUpdateBahanKemas(BatchBahanKemas batchkemas) {
+		RepoSbbk.save(batchkemas);
+		return "Submit Successfully";
+	}
+	
 
 }

@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.invrepo.invrp.models.MasterBatch;
@@ -37,6 +39,12 @@ public class ControllerMasterBatch {
 	@GetMapping("/mbat/getmbtnobatch")
 	public Optional<MasterBatch> getMbtNoBatch(String nobatch) {
 		return servMbt.getNoBatch(nobatch);
+	}
+	
+	@PostMapping("/mbat/saveupdmstbatch")
+	public String saveUpdateMasterBatch(@RequestBody MasterBatch mstbatch) {
+		return servMbt.saveUpdateMasterBatch(mstbatch);
+	
 	}
 	
 	@GetMapping("/mbat/gettest")

@@ -6,9 +6,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.invrepo.invrp.models.BatchBahanBaku;
+import com.invrepo.invrp.models.MasterBatch;
 import com.invrepo.invrp.services.ServiceBatchBahanBaku;
 
 @RestController
@@ -43,5 +46,11 @@ public class ControllerBatchBahanBaku {
     public  BatchBahanBaku getMbbNoBatchSingle(String nobatch, String code){
         return ServSBBBaku.getMbbNoBatchSingle(nobatch, code);
     }
+	
+	@PostMapping("/bahanbaku/saveupdbatchbaku")
+	public String saveUpdateBahanBaku(@RequestBody BatchBahanBaku batchbaku) {
+		ServSBBBaku.saveUpdateBahanBaku(batchbaku);
+		return "Submit Successfully";
+	}
 
 }

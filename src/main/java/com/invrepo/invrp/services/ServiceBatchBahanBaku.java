@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.invrepo.invrp.models.BatchBahanBaku;
+import com.invrepo.invrp.models.MasterBatch;
 import com.invrepo.invrp.repository.IBatchBahanBaku;
 
 //import lombok.extern.slf4j.Slf4j;
@@ -39,5 +40,10 @@ public class ServiceBatchBahanBaku {
 	public  BatchBahanBaku getMbbNoBatchSingle(String nobatch, String code){
         return RepoSBBBaku.findByBbbMbtNoBatchAndBbbBbCode(nobatch, code);
     }
+	
+	public String saveUpdateBahanBaku(BatchBahanBaku batchbaku) {
+		RepoSBBBaku.save(batchbaku);
+		return "Submit Successfully";
+	}
 
 }

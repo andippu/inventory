@@ -36,4 +36,9 @@ public class ServiceMasterBatch {
 		return repoMbt.findByMbtNoBatch(nobatch);
 	}
 	
+	public String saveUpdateMasterBatch(MasterBatch mstbatch) {
+		repoMbt.save(mstbatch);
+		return "Submit Successfully";
+	}
+	
 }

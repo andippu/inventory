@@ -6,8 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.invrepo.invrp.models.MasterBatch;
 import com.invrepo.invrp.models.Produksi;
 import com.invrepo.invrp.services.ServiceProduksi;
 
@@ -37,6 +40,12 @@ public class ControllerProduksi {
 	@GetMapping("/prod/getprodnourut")
 	public Optional<Produksi> getPrNoBatch(Integer nourut) {
 		return ServProd.getProdNoUrut(nourut);
+	}
+	
+	@PostMapping("/prod/saveupdprod")
+	public String saveUpdateProduksi(@RequestBody Produksi prod) {
+		return ServProd.saveUpdateProduksi(prod);
+	
 	}
 
 }

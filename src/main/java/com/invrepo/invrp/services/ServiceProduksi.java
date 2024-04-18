@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.invrepo.invrp.models.MasterBatch;
 import com.invrepo.invrp.models.Produksi;
 import com.invrepo.invrp.repository.IProduksi;
 
@@ -32,6 +33,11 @@ public class ServiceProduksi {
 	public Optional<Produksi> getProdNoUrut(Integer nourut){
 	       // System.out.println("test dt :"+dt);
 	          return RepoProd.findByPrNoUrut(nourut);
+	}
+	
+	public String saveUpdateProduksi(Produksi prod) {
+		RepoProd.save(prod);
+		return "Submit Successfully";
 	}
 
 }
