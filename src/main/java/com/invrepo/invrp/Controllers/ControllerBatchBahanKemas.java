@@ -53,4 +53,10 @@ public class ControllerBatchBahanKemas {
 		return "Submit Successfully";
 	}
 	
+	@GetMapping("/bahankemas/updatebatchkemas")
+	public String UpdateBahanKemas(String nobatch, String tglbatch, int bkno, String bkcode, int bkunit, String satcode, int bkharga, int bktotal, String bkchguser, String bkchgdate, String pnobatch, String ptglbatch, String pbkcode) {
+		ServSbbk.UpdateBahanKemas(nobatch, tglbatch, bkno, bkcode, bkunit, satcode, bkharga, bktotal, bkchguser, bkchgdate, pnobatch, ptglbatch, pbkcode);
+		return "Update Successfully";
+	}
+	
 }

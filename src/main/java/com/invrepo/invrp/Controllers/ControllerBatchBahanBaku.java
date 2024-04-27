@@ -52,5 +52,11 @@ public class ControllerBatchBahanBaku {
 		ServSBBBaku.saveUpdateBahanBaku(batchbaku);
 		return "Submit Successfully";
 	}
+	
+	@GetMapping("/bahanbaku/updatebatchbaku")
+	public String UpdateBahanBaku(String nobatch, String tglbatch, int bkno, String bkcode, int bkunit, String satcode, int bkharga, int bktotal, String bkchguser, String bkchgdate, String pnobatch, String ptglbatch, String pbkcode) {
+		ServSBBBaku.UpdateBahanBaku(nobatch, tglbatch, bkno, bkcode, bkunit, satcode, bkharga, bktotal, bkchguser, bkchgdate, pnobatch, ptglbatch, pbkcode);
+		return "Update Successfully";
+	}
 
 }
