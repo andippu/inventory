@@ -25,6 +25,9 @@ public interface IBatchBahanBaku extends JpaRepository <BatchBahanBaku,BatchBaha
 	@Query(value = "SELECT * FROM BATCH_BAHAN_BAKU S WHERE TO_CHAR(BBB_MBT_TGL_BATCH,'Monyyyy')=?1",nativeQuery = true)
     public List<BatchBahanBaku> getMbbByMonth(String month);
 	
+	@Query(value = "SELECT * FROM BATCH_BAHAN_BAKU S WHERE TO_CHAR(BBB_MBT_TGL_BATCH,'dd/mm/yyyy')=?1 AND BBB_MBT_NO_BATCH=?2",nativeQuery = true)
+    public List<BatchBahanBaku> getMbbByNoBatchMonth(String month, String nobatch);
+	
 	List<BatchBahanBaku> findByBbbMbtNoBatch(String nobatch);
 	
 	BatchBahanBaku findByBbbMbtNoBatchAndBbbBbCode(String nobatch,String code);

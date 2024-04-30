@@ -32,9 +32,9 @@ public class ControllerBatchBahanBaku {
 		return ServSBBBaku.getBatchBakuByDay(day);
 	}
 	
-	@GetMapping("/bahanbaku/getmbblistMonth")
-	public List<BatchBahanBaku> getBatchBakuListMonth(String month){
-		return ServSBBBaku.getBatchBakuByMonth(month);
+	@GetMapping("/bahanbaku/getmbblistNoBatchMonth")
+	public List<BatchBahanBaku>  getMbbByNoBatchMonth(String month, String nobatch){
+		return ServSBBBaku.getMbbByNoBatchMonth(month, nobatch);
 	}
 	
 	@GetMapping("/bahanbaku/getmbbnobat")

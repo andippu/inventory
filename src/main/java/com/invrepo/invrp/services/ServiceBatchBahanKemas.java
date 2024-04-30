@@ -30,6 +30,11 @@ public class ServiceBatchBahanKemas {
 	          return RepoSbbk.getMbkByMonth(month);
 	}
 	
+	public List<BatchBahanKemas> getBatchKemasByNoBatchMonth(String month, String nobatch){
+	       // System.out.println("test dt :"+dt);
+	          return RepoSbbk.getMbkByNoBatchMonth(month, nobatch);
+	}
+	
 	public List<BatchBahanKemas> getMbkNoBatch(String nobatch){
 	       // System.out.println("test dt :"+dt);
 	          return RepoSbbk.findByBbkMbtNoBatch(nobatch);

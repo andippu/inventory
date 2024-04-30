@@ -37,6 +37,11 @@ public class ControllerProduksi {
         return ServProd.getProdByMonth(month);
     }
 	
+	@GetMapping("/prod/getprodbynobatchmonth")
+	public List<Produksi> getProdByMonth(String month, String nobatch){
+        return ServProd.getProdByNoBatchMonth(month, nobatch);
+    }
+	
 	@GetMapping("/prod/getprodnourut")
 	public Optional<Produksi> getPrNoBatch(Integer nourut) {
 		return ServProd.getProdNoUrut(nourut);

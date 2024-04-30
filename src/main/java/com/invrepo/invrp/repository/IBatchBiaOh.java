@@ -20,6 +20,9 @@ public interface IBatchBiaOh extends JpaRepository <BatchBiaOh,BatchBiaOhCompKey
 	@Query(value = "SELECT * FROM BATCH_BIA_OH S WHERE TO_CHAR(BBOH_MBT_TGL_BATCH,'Monyyyy')=?1",nativeQuery = true)
     public List<BatchBiaOh> getMboByMonth(String month);
 	
+	@Query(value = "SELECT * FROM BATCH_BIA_OH S WHERE TO_CHAR(BBOH_MBT_TGL_BATCH,'dd/mm/yyyy')=?1 AND BBOH_MBT_NO_BATCH=?2",nativeQuery = true)
+    public List<BatchBiaOh> getMboByNoBatchMonth(String month, String nobatch);
+	
 	List<BatchBiaOh> findByBbohMbtNoBatch(String nobatch);
 	
 	BatchBiaOh findByBbohMbtNoBatchAndBbohSeq(String nobatch,Integer seq );

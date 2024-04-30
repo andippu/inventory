@@ -36,6 +36,11 @@ public class ControllerBiaOh {
 		return ServSbbo.getBatchOhByMonth(month);
 	}
 	
+	@GetMapping("/biaoh/getbiaohlistnobatchmonth")
+	public List<BatchBiaOh> getBatchOhListNoBatchMonth(String month, String nobatch){
+		return ServSbbo.getBatchOhByNoBatchMonth(month, nobatch);
+	}
+	
 	@GetMapping("/biaoh/getbiaohnobatch")
 	public List<BatchBiaOh> getBbohNoBatch(String nobatch){
 		return ServSbbo.getBbohNoBatch(nobatch);

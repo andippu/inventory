@@ -30,6 +30,11 @@ public class ServiceProduksi {
 	          return RepoProd.getPrByMonth(month);
 	}
 	
+	public List<Produksi> getProdByNoBatchMonth(String month, String nobatch){
+	       // System.out.println("test dt :"+dt);
+	          return RepoProd.getPrByNoBatchMonth(month, nobatch);
+	}
+	
 	public Optional<Produksi> getProdNoUrut(Integer nourut){
 	       // System.out.println("test dt :"+dt);
 	          return RepoProd.findByPrNoUrut(nourut);

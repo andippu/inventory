@@ -33,6 +33,11 @@ public class ServiceBatchBahanBaku {
 	          return RepoSBBBaku.getMbbByMonth(month);
 	}
 	
+	public List<BatchBahanBaku> getMbbByNoBatchMonth(String month, String nobatch){
+	       // System.out.println("test dt :"+dt);
+	          return RepoSBBBaku.getMbbByNoBatchMonth(month, nobatch);
+	}
+	
 	public List<BatchBahanBaku> getMbbNoBatch(String nobatch){
 		return RepoSBBBaku.findByBbbMbtNoBatch(nobatch);		
 	}

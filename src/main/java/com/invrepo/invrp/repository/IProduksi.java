@@ -20,6 +20,9 @@ public interface IProduksi extends JpaRepository <Produksi,Integer>{
 	@Query(value = "SELECT * FROM PRODUKSI S WHERE TO_CHAR(PR_TGL_BATCH,'Monyyyy')=?1",nativeQuery = true)
     public List<Produksi> getPrByMonth(String month);
 	
+	@Query(value = "SELECT * FROM PRODUKSI S WHERE TO_CHAR(PR_TGL_BATCH,'dd/mm/yyyy')=?1 AND PR_NO_BATCH=?2",nativeQuery = true)
+    public List<Produksi> getPrByNoBatchMonth(String month, String nobatch);
+	
 	Optional<Produksi> findByPrNoUrut(Integer nourut);
 
 }

@@ -29,6 +29,11 @@ public class ServiceBatchBiaOh {
 	          return RepoSbbo.getMboByMonth(month);
 	}
 	
+	public List<BatchBiaOh> getBatchOhByNoBatchMonth(String month, String nobatch){
+	       // System.out.println("test dt :"+dt);
+	          return RepoSbbo.getMboByNoBatchMonth(month, nobatch);
+	}
+	
 	public List<BatchBiaOh> getBbohNoBatch(String nobatch){
 		return RepoSbbo.findByBbohMbtNoBatch(nobatch);		
 	}

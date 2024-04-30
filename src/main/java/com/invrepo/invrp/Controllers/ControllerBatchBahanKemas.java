@@ -37,6 +37,11 @@ public class ControllerBatchBahanKemas {
 		return ServSbbk.getBatchKemasByMonth(month);
 	}
 	
+	@GetMapping("/bahankemas/getmbklistNoBatchMonth")
+	public List<BatchBahanKemas> getBatchKemasByNoBatchMonth(String month, String nobatch){
+		return ServSbbk.getBatchKemasByNoBatchMonth(month, nobatch);
+	}
+	
 	@GetMapping("/bahankemas/getmbknobatch")
 	public List<BatchBahanKemas> getMbkNoBatch(String nobatch) {
 		return ServSbbk.getMbkNoBatch(nobatch);
