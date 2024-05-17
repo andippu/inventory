@@ -51,5 +51,11 @@ public class ControllerMasterTransBrglokal {
         ServMtblokal.saveUpdateMstBrglokal(mstbrglokal);
         return "Submit Successfully";
     }
+	
+	@GetMapping("/mstbrglokal/updatemstbrglokal")
+	public String UpdateMasterTransBrnglokal (String mtlno, String mtldate, String mtltype, String mtldesc,String mtlchguser, String mtlchgdate, String pmtlno, String pmtldate, String pmtltype) {
+		ServMtblokal.UpdateMasterTransBrglokal(mtlno, mtldate, mtltype, mtldesc, mtlchguser, mtlchgdate, pmtlno, pmtldate, pmtltype);
+		return "Update Successfully";
+	}
 
 }

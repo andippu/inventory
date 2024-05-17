@@ -40,5 +40,10 @@ public class ServiceMasterTransBrgpbrk {
 		RepoMtbpbrk.save(mstbrgpbrk);
 		return "Submit Successfully";
 	}
+	
+	public String UpdateMasterTransBrgpbrk (String mtpno, String mtpdate, String mtptype, String mtpstatus, String mtpdesc,String mtpchguser, String mtpchgdate, String pmtpno, String pmtpdate, String pmtptype) {
+		RepoMtbpbrk.updateWithMtpNoAndMtpType(mtpno, mtpdate, mtptype, mtpstatus, mtpdesc, mtpchguser, mtpchgdate, pmtpno, pmtpdate, pmtptype);
+		return "Update Successfully";
+	};
 
 }

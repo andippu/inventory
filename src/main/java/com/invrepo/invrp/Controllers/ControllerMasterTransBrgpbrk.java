@@ -52,5 +52,11 @@ public class ControllerMasterTransBrgpbrk {
 		ServMtbpbrk.saveUpdateMstBrgpbrk(mstbrgpbrk);
         return "Submit Successfully";
     }
+	
+	@GetMapping("/mstbrgpbrk/updatemstbrgpbrk")
+	public String UpdateMasterTransBrngpbrk (String mtpno, String mtpdate, String mtptype, String mtpstatus, String mtpdesc,String mtpchguser, String mtpchgdate, String pmtpno, String pmtpdate, String pmtptype) {
+		ServMtbpbrk.UpdateMasterTransBrgpbrk(mtpno, mtpdate, mtptype, mtpstatus, mtpdesc, mtpchguser, mtpchgdate, pmtpno, pmtpdate, pmtptype);
+		return "Update Successfully";
+	}
 
 }

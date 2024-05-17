@@ -36,6 +36,11 @@ public class ControllerDetilTransBrglokal {
         return ServDtlblokal.getDtlBrglokalByMonth(month);
     }
 	
+	@GetMapping("/dtlbrglokal/getdtllokalmtlnomonth")
+	public List<DetilTransBrglokal> getDtllokalListMtlnoMonth(String month, String mtlno, String type){
+        return ServDtlblokal.getDtlBrglokalByMtlnoMonth(month, mtlno, type);
+    }
+	
 	@GetMapping("/dtlbrglokal/getdtlmtlno")
 	public List<DetilTransBrglokal> getDtlMtlNo(String mtlno){
         return ServDtlblokal.getDtlMtlNo(mtlno);
@@ -51,5 +56,14 @@ public class ControllerDetilTransBrglokal {
 		ServDtlblokal.saveUpdateDtlBrglokal(dtlbrglokal);
         return "Submit Successfully";
     }
+	
+	@GetMapping("/dtlbrglokal/updatedtlbrglokal")
+	public String UpdateDetilTransBrnglokal (String dtlmtlno, String dtlmtldate, String dtlmtltype, String dtlbrcode, 
+			String dtlbatchno,String dtlexpdate, String dtlqty, String dtlchguser, String dtlchgdate, String pmtlno
+			, String pmtldate, String pmtltype, String pbrcode, String pbatchno){
+		ServDtlblokal.UpdateDtlBrglokal(dtlmtlno, dtlmtldate, dtlmtltype, dtlbrcode, dtlbatchno, dtlexpdate, dtlqty,
+				dtlchguser, dtlchgdate, pmtlno, pmtldate, pmtltype, pbrcode, pbatchno);
+		return "Update Successfully";
+	}
 
 }

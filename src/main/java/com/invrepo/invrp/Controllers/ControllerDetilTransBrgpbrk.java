@@ -36,6 +36,11 @@ public class ControllerDetilTransBrgpbrk {
         return ServDtlbpbrk.getDtlBrgpbrkByMonth(month);
     }
 	
+	@GetMapping("/dtlbrgpbrk/getdtlpbrkmtpnomonth")
+	public List<DetilTransBrgpbrk> getDtlpbrkListMtpnoMonth(String month, String mtlno, String type){
+        return ServDtlbpbrk.getDtlBrgpbrkByMtpnoMonth(month, mtlno, type);
+    }
+	
 	@GetMapping("/dtlbrgpbrk/getdtlmtpno")
 	public List<DetilTransBrgpbrk> getDtlMtpNo(String mtpno){
         return ServDtlbpbrk.getDtlMtpNo(mtpno);
@@ -51,5 +56,14 @@ public class ControllerDetilTransBrgpbrk {
 		ServDtlbpbrk.saveUpdateDtlBrgpbrk(dtlbrglokal);
         return "Submit Successfully";
     }
+	
+	@GetMapping("/dtlbrgpbrk/updatedtlbrgpbrk")
+	public String UpdateDetilTransBrngpbrk (String dtpmtpno, String dtpmtpdate, String dtpmtptype, String dtpbrcode, 
+			String dtpbatchno,String dtpqty, String dtpchguser, String dtpchgdate, String pmtpno
+			, String pmtpdate, String pmtptype, String pbrcode, String pbatchno){
+		ServDtlbpbrk.UpdateDtlBrgpbrk(dtpmtpno, dtpmtpdate, dtpmtptype, dtpbrcode, dtpbatchno, dtpqty, dtpchguser,
+			dtpchgdate, pmtpno, pmtpdate, pmtptype, pbrcode, pbatchno);
+		return "Update Successfully";
+	}
 
 }

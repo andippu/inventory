@@ -27,6 +27,10 @@ public class ServiceDetilTransBrglokal {
 		return RepoDtlblokal.getDtlMtlByMonth(month);
 	}
 	
+	public List<DetilTransBrglokal> getDtlBrglokalByMtlnoMonth(String month, String mtlno, String type){
+		return RepoDtlblokal.getDtlByMtlnoMonth(month, mtlno, type);
+	}
+	
 	public List<DetilTransBrglokal> getDtlMtlNo(String mtlno){
 		return RepoDtlblokal.findByDtlMtlNo(mtlno);
 	}
@@ -39,5 +43,13 @@ public class ServiceDetilTransBrglokal {
 		RepoDtlblokal.save(dtlbrglokal);
 		return "Submit Successfully";
 	}
+	
+	public String UpdateDtlBrglokal (String dtlmtlno, String dtlmtldate, String dtlmtltype, String dtlbrcode, 
+			String dtlbatchno,String dtlexpdate, String dtlqty, String dtlchguser, String dtlchgdate, String pmtlno
+			, String pmtldate, String pmtltype, String pbrcode, String pbatchno) {
+		RepoDtlblokal.updateWithDtlMtlNoAndDtlMtlType(dtlmtlno, dtlmtldate, dtlmtltype, dtlbrcode, dtlbatchno,
+				dtlexpdate, dtlqty, dtlchguser, dtlchgdate, pmtlno, pmtldate, pmtltype, pbrcode, pbatchno);
+		return "Update Successfully";
+	};
 
 }

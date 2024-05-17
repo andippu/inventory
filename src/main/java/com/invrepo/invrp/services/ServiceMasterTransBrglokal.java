@@ -39,5 +39,10 @@ public class ServiceMasterTransBrglokal {
 		RepoMtblokal.save(mstbrglokal);
 		return "Submit Successfully";
 	}
+	
+	public String UpdateMasterTransBrglokal (String mtlno, String mtldate, String mtltype, String mtldesc,String mtlchguser, String mtlchgdate, String pmtlno, String pmtldate, String pmtltype) {
+		RepoMtblokal.updateWithMtlNoAndMtlType(mtlno, mtldate, mtltype, mtldesc, mtlchguser, mtlchgdate, pmtlno, pmtldate, pmtltype);
+		return "Update Successfully";
+	};
 
 }
