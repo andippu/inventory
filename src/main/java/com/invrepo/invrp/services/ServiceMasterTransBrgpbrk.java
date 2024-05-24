@@ -36,6 +36,11 @@ public class ServiceMasterTransBrgpbrk {
 		return RepoMtbpbrk.findByMtpNoAndMtpType(mtpno, type);
 	}
 	
+	public String DeleteMstBrgpbrk(String mtpno,String type) {
+		RepoMtbpbrk.getDelByMtpNo(mtpno, type);
+		return "Delete Successfully";
+	}
+	
 	public String saveUpdateMstBrgpbrk(MasterTransBrgpbrk mstbrgpbrk) {
 		RepoMtbpbrk.save(mstbrgpbrk);
 		return "Submit Successfully";

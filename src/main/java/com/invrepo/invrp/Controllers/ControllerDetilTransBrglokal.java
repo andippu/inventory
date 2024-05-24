@@ -51,6 +51,18 @@ public class ControllerDetilTransBrglokal {
         return ServDtlblokal.getDtlMtlNoSingle(mtlno, type, brcode, batchno);
     }
 	
+	@GetMapping("/dtlbrglokal/deletedtlbrglokal")
+	public String DelMstBrglokal(String mtlno, String type){
+		ServDtlblokal.DelDtlBrglokal(mtlno, type);
+        return "Delete Successfully";
+    }
+	
+	@GetMapping("/dtlbrglokal/deletedtlbrglokalsingle")
+	public String DelMstBrglokalSingle(String mtlno, String type,String brcode,String batchno){
+		ServDtlblokal.DelDtlBrglokalSingle(mtlno, type, brcode, batchno);
+        return "Delete Successfully";
+    }
+	
 	@PostMapping("/dtlbrglokal/saveupdatedtlbrglokal")
 	public String  SaveUpdateMstBrglokal(@RequestBody DetilTransBrglokal dtlbrglokal){
 		ServDtlblokal.saveUpdateDtlBrglokal(dtlbrglokal);

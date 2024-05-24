@@ -28,6 +28,12 @@ public interface IDetilTransBrgpbrk extends JpaRepository <DetilTransBrgpbrk,Det
 	@Query(value = "SELECT * FROM DETIL_TRANS_BRGPBRK S WHERE TO_CHAR(DTP_MTP_DATE,'dd/mm/yyyy')=?1 AND DTP_MTP_NO=?2 AND DTP_MTP_TYPE=?3",nativeQuery = true)
     public List<DetilTransBrgpbrk> getDtlByMtpnoMonth(String month, String mtlno, String type);
 	
+	@Query(value = "DELETE FROM DETIL_TRANS_BRGPBRK S WHERE DTP_MTP_NO=?1 AND DTP_MTP_TYPE=?2",nativeQuery = true)
+    int getDelByMtpno(String mtlno, String type);
+	
+	@Query(value = "DELETE FROM DETIL_TRANS_BRGPBRK S WHERE DTP_MTP_NO=?1 AND DTP_MTP_TYPE=?2 AND DTP_BR_CODE=?3 AND DTP_BATCH_NO=?4",nativeQuery = true)
+    int getDelByMtpnoSingle(String mtlno, String type, String brcode, String batchno);
+	
 	List<DetilTransBrgpbrk> findByDtpMtpNo(String mtpno);
 	
 	DetilTransBrgpbrk findByDtpMtpNoAndDtpMtpTypeAndDtpBrCodeAndDtpBatchNo (String mtpno,String type,String brcode,String batchno);

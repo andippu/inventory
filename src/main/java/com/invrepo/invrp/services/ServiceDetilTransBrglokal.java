@@ -39,6 +39,16 @@ public class ServiceDetilTransBrglokal {
 		return RepoDtlblokal.findByDtlMtlNoAndDtlMtlTypeAndDtlBrCodeAndDtlBatchNo(mtlno, type, brcode, batchno);
 	}
 	
+	public String DelDtlBrglokal(String mtlno, String type) {
+		RepoDtlblokal.getDelByMtlno(mtlno, type);
+		return "Delete Successfully";
+	}
+	
+	public String DelDtlBrglokalSingle(String mtlno, String type,String brcode,String batchno) {
+		RepoDtlblokal.getDelByMtlnoSingle(mtlno, type, brcode, batchno);
+		return "Delete Successfully";
+	}
+	
 	public String saveUpdateDtlBrglokal(DetilTransBrglokal dtlbrglokal) {
 		RepoDtlblokal.save(dtlbrglokal);
 		return "Submit Successfully";

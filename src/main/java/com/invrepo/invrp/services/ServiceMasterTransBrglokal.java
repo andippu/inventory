@@ -31,6 +31,11 @@ public class ServiceMasterTransBrglokal {
 		return RepoMtblokal.findByMtlNo(mtlno);
 	}
 	
+	public String DeleteMstBrglokal(String mtlno,String type) {
+		RepoMtblokal.getDelByMtlNo(mtlno, type);
+		return "Delete Successfully";
+	}
+	
 	public MasterTransBrglokal getMtlNoSingle(String mtlno,String type){
 		return RepoMtblokal.findByMtlNoAndMtlType(mtlno, type);
 	}

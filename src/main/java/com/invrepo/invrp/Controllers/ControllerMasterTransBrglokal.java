@@ -46,6 +46,12 @@ public class ControllerMasterTransBrglokal {
         return ServMtblokal.getMtlNoSingle(mtlno, type);
     }
 	
+	@GetMapping("/mstbrglokal/deletemstbrglokal")
+	public String DeleteMasterTransBrnglokal (String mtlno,String type) {
+		ServMtblokal.DeleteMstBrglokal(mtlno, type);
+		return "Delete Successfully";
+	}
+	
 	@PostMapping("/mstbrglokal/saveupdatemstbrglokal")
 	public String  SaveUpdateMstBrglokal(@RequestBody MasterTransBrglokal mstbrglokal){
         ServMtblokal.saveUpdateMstBrglokal(mstbrglokal);

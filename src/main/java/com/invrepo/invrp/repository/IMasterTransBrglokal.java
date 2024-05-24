@@ -24,6 +24,9 @@ public interface IMasterTransBrglokal extends JpaRepository <MasterTransBrglokal
 	@Query(value = "SELECT * FROM MASTER_TRANS_BRGLOKAL S WHERE TO_CHAR(MTL_DATE,'Monyyyy')=?1",nativeQuery = true)
     public List<MasterTransBrglokal> getMtlByMonth(String month);
 	
+	@Query(value = "DELETE FROM MASTER_TRANS_BRGLOKAL S WHERE S.MTL_NO = ?1 AND S.MTL_TYPE = ?2",nativeQuery = true)
+    int getDelByMtlNo(String mtlno,String type);
+	
 	List<MasterTransBrglokal> findByMtlNo(String mtlno);
 	
 	MasterTransBrglokal findByMtlNoAndMtlType (String mtlno,String type);

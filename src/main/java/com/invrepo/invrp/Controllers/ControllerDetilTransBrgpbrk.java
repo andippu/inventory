@@ -51,6 +51,18 @@ public class ControllerDetilTransBrgpbrk {
         return ServDtlbpbrk.getDtlMtpNoSingle(mtpno, type, brcode, batchno);
     }
 	
+	@GetMapping("/dtlbrgpbrk/deletedtlbrgpbrk")
+	public String  DelMstDtlpbrk(String mtpno, String type){
+		ServDtlbpbrk.DeleteDtlBrgpbrk(mtpno, type);
+        return "Delete Successfully";
+    }
+	
+	@GetMapping("/dtlbrgpbrk/deletedtlbrgpbrksingle")
+	public String  DelMstDtlpbrkSingle(String mtpno, String type, String brcode, String batchno){
+		ServDtlbpbrk.DeleteDtlBrgpbrk(mtpno, type);
+        return "Delete Successfully";
+    }
+	
 	@PostMapping("/dtlbrgpbrk/saveupdatedtlbrgpbrk")
 	public String  SaveUpdateMstBrgpbrk(@RequestBody DetilTransBrgpbrk dtlbrglokal){
 		ServDtlbpbrk.saveUpdateDtlBrgpbrk(dtlbrglokal);

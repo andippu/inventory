@@ -47,6 +47,11 @@ public class ControllerMasterTransBrgpbrk {
         return ServMtbpbrk.getMtpNoSingle(mtpno, type);
     }
 	
+	@GetMapping("/mstbrgpbrk/deletemstbrgpbrk")
+	public String DeleteMstBrgpbrk (String mtpno,String type){
+        return ServMtbpbrk.DeleteMstBrgpbrk(mtpno, type);
+    }
+	
 	@PostMapping("/mstbrgpbrk/saveupdatemstbrgpbrk")
 	public String  SaveUpdateMstBrgpbrk(@RequestBody MasterTransBrgpbrk mstbrgpbrk){
 		ServMtbpbrk.saveUpdateMstBrgpbrk(mstbrgpbrk);

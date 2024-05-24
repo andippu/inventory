@@ -39,6 +39,16 @@ public class ServiceDetilTransBrgpbrk {
 		return RepoDtlbpbrk.findByDtpMtpNoAndDtpMtpTypeAndDtpBrCodeAndDtpBatchNo(mtpno, type, brcode, batchno);
 	}
 	
+	public String DeleteDtlBrgpbrk(String mtlno, String type) {
+		RepoDtlbpbrk.getDelByMtpno(mtlno, type);
+		return "Delete Successfully";
+	}
+	
+	public String DeleteDtlBrgpbrkSingle(String mtlno, String type, String brcode, String batchno) {
+		RepoDtlbpbrk.getDelByMtpnoSingle(mtlno, type, brcode, batchno);
+		return "Delete Successfully";
+	}
+	
 	public String saveUpdateDtlBrgpbrk(DetilTransBrgpbrk dtlbrgpbrk) {
 		RepoDtlbpbrk.save(dtlbrgpbrk);
 		return "Submit Successfully";
