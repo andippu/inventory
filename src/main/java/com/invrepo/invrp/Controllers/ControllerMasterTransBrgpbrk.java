@@ -49,7 +49,8 @@ public class ControllerMasterTransBrgpbrk {
 	
 	@GetMapping("/mstbrgpbrk/deletemstbrgpbrk")
 	public String DeleteMstBrgpbrk (String mtpno,String type){
-        return ServMtbpbrk.DeleteMstBrgpbrk(mtpno, type);
+        ServMtbpbrk.DeleteMstBrgpbrk(mtpno, type);
+        return "Delete Successfully";
     }
 	
 	@PostMapping("/mstbrgpbrk/saveupdatemstbrgpbrk")

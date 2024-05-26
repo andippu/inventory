@@ -24,7 +24,7 @@ public interface IMasterTransBrgpbrk extends JpaRepository <MasterTransBrgpbrk,M
 	@Query(value = "SELECT * FROM MASTER_TRANS_BRGPBRK S WHERE TO_CHAR(MTP_DATE,'Monyyyy')=?1",nativeQuery = true)
     public List<MasterTransBrgpbrk> getMtpByMonth(String month);
 	
-	@Query(value = "DELETE FROM MASTER_TRANS_BRGPBRK S WHERE S.MTP_NO = ?1, S.MTP_TYPE = ?2",nativeQuery = true)
+	@Query(value = "DELETE FROM MASTER_TRANS_BRGPBRK S WHERE S.MTP_NO = ?1 AND S.MTP_TYPE = ?2",nativeQuery = true)
     int getDelByMtpNo(String mtpno,String type);
 	
 	List<MasterTransBrgpbrk> findByMtpNo(String mtpno);

@@ -63,6 +63,12 @@ public class ControllerDetilTransBrglokal {
         return "Delete Successfully";
     }
 	
+	@GetMapping("/dtlbrglokal/deltranslokal")
+	public String DelTransLokal(String batchno, String mtltype,String brcode, Integer dtlqty){
+		ServDtlblokal.DelTransLokal(batchno, mtltype, brcode, dtlqty);
+		return "Delete lokal";
+	}
+	
 	@PostMapping("/dtlbrglokal/saveupdatedtlbrglokal")
 	public String  SaveUpdateMstBrglokal(@RequestBody DetilTransBrglokal dtlbrglokal){
 		ServDtlblokal.saveUpdateDtlBrglokal(dtlbrglokal);

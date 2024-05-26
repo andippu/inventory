@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -32,6 +33,9 @@ public interface IDetilTransBrglokal extends JpaRepository <DetilTransBrglokal,D
 	
 	@Query(value = "DELETE FROM DETIL_TRANS_BRGLOKAL S WHERE DTL_MTL_NO=?1 AND DTL_MTL_TYPE=?2 AND DTL_BR_CODE=?3 AND DTL_BATCH_NO=?4",nativeQuery = true)
     int getDelByMtlnoSingle(String mtlno, String type,String brcode,String batchno);
+	
+	@Procedure(procedureName = "TRIG_DELETE_TRANSLOKAL")
+	public String getDelTransLokal(String batchno, String mtltype,String brcode, Integer dtlqty);
 	
 	List<DetilTransBrglokal> findByDtlMtlNo(String mtlno);
 	

@@ -59,7 +59,7 @@ public class ControllerDetilTransBrgpbrk {
 	
 	@GetMapping("/dtlbrgpbrk/deletedtlbrgpbrksingle")
 	public String  DelMstDtlpbrkSingle(String mtpno, String type, String brcode, String batchno){
-		ServDtlbpbrk.DeleteDtlBrgpbrk(mtpno, type);
+		ServDtlbpbrk.DeleteDtlBrgpbrkSingle(mtpno, type, brcode, batchno);
         return "Delete Successfully";
     }
 	
