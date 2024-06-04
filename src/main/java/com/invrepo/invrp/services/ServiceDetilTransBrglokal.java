@@ -49,8 +49,8 @@ public class ServiceDetilTransBrglokal {
 		return "Delete Successfully";
 	}
 	
-	public String DelTransLokal(String batchno, String mtltype,String brcode, Integer dtlqty) {
-		RepoDtlblokal.getDelTransLokal(batchno, mtltype, brcode, dtlqty);		
+	public String DelTransLokal(String BATCHNO, String MTLTYPE,String BRCODE, Integer DTLQTY) {
+		RepoDtlblokal.getDelTransLokal(BATCHNO, MTLTYPE, BRCODE, DTLQTY);		
 		return "Delete lokal Successfully";
 	}
 	

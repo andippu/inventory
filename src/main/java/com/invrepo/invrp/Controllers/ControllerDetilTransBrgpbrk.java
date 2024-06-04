@@ -63,6 +63,12 @@ public class ControllerDetilTransBrgpbrk {
         return "Delete Successfully";
     }
 	
+	@GetMapping("/dtlbrgpbrk/deltranspabrik")
+	public String DelTransPabrik(String BATCHNO, String MTPTYPE,String BRCODE, Integer DTPQTY, String MTPSTATUS){
+		ServDtlbpbrk.DelTransPabrik(BATCHNO, MTPTYPE, BRCODE, DTPQTY, MTPSTATUS);
+		return "Delete Trans Pabrik";
+	}
+	
 	@PostMapping("/dtlbrgpbrk/saveupdatedtlbrgpbrk")
 	public String  SaveUpdateMstBrgpbrk(@RequestBody DetilTransBrgpbrk dtlbrglokal){
 		ServDtlbpbrk.saveUpdateDtlBrgpbrk(dtlbrglokal);

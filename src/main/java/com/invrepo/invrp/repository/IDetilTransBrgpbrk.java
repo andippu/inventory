@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -33,6 +34,9 @@ public interface IDetilTransBrgpbrk extends JpaRepository <DetilTransBrgpbrk,Det
 	
 	@Query(value = "DELETE FROM DETIL_TRANS_BRGPBRK S WHERE DTP_MTP_NO=?1 AND DTP_MTP_TYPE=?2 AND DTP_BR_CODE=?3 AND DTP_BATCH_NO=?4",nativeQuery = true)
     int getDelByMtpnoSingle(String mtlno, String type, String brcode, String batchno);
+	
+	@Procedure(procedureName = "TRIG_DELETE_TRANSPABRIK")
+	public String getDelTransPabrik(String BATCHNO, String MTPTYPE,String BRCODE, Integer DTPQTY, String MTPSTATUS);
 	
 	List<DetilTransBrgpbrk> findByDtpMtpNo(String mtpno);
 	
