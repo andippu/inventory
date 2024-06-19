@@ -18,17 +18,16 @@ import com.invrepo.invrp.services.ServiceKoreksiStock;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
-
 public class ControllerKoreksiStock {
 	@Autowired
 	ServiceKoreksiStock servKS;
 	
-	@GetMapping("/koreksiStock/kbhList")
+	@GetMapping("/koreksiStock/ksList")
 	public List<KoreksiStock> getKoreksiStock(Date pdate){
 		return servKS.getKoreksiStock(pdate);
 	}
 	
-	@GetMapping("/koreksiStock/kbhcu")
+	@GetMapping("/koreksiStock/kscu")
 	public List<KoreksiStock> getKoreksiStockCU (BigDecimal ksid){
 		return servKS.getKoreksiStockCU(ksid);
 	}

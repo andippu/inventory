@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.invrepo.invrp.models.KoreksiStock;
 
-
 @Repository
 @CrossOrigin("http://localhost:4200")
 public interface IKoreksiStockRepository extends JpaRepository<KoreksiStock, BigDecimal>{
