@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.invrepo.invrp.models.DetilTtbbeli;
@@ -29,8 +30,15 @@ public class ControllerDetilTtbbeli {
     }
 	
 	@PostMapping("/dtlTtbbeli/saveupdatettbeli")
-	public String SaveUpdateTtbbeli(DetilTtbbeli dtlttbeli){
+	public String SaveUpdateTtbbeli(@RequestBody DetilTtbbeli dtlttbeli){
         return ServTtbbeli.saveUpdateDtlTtbbeli(dtlttbeli);
     }
+	
+	@GetMapping("/dtlTtbbeli/updatedtlttbbeli")
+	public String UpdateDetilTtbbeli (String dtlbelino, String dtlbahancode, String dtljnsbahan, String dtlbelijumlah, 
+			String ttbharga,String ttbgrandtotal, String createby,String cretedate, String Pdtlbelino, String pdtlbahancode){
+		ServTtbbeli.UpdateDtlTtbbeli(dtlbelino, dtlbahancode, dtljnsbahan, dtlbelijumlah, ttbharga, ttbgrandtotal, createby, cretedate, Pdtlbelino, pdtlbahancode);
+		return "Update Successfully";
+	}
 
 }

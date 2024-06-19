@@ -21,11 +21,11 @@ import lombok.NoArgsConstructor;
 public class DetilTtbbeli {
 	
 	@Id
-    @Column(name="DETIL_TTBBELI_NO",length=50)
+    @Column(name="DETIL_TTBBELI_NO",length=50, nullable = false)
     private String dtlttbbeliNo;
 	
 	@Id
-    @Column(name="TTBBELI_BAHAN_CODE",length=12)
+    @Column(name="TTBBELI_BAHAN_CODE",length=12, nullable = false)
     private String dtlttbbahancode;
 	
     @Column(name="TTBBELI_JNS_BAHAN",length=3)

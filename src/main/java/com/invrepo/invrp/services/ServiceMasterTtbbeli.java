@@ -43,5 +43,10 @@ public class ServiceMasterTtbbeli {
 		RepoMasbel.save(masbel);
 		return "Submit Successfully";
 	}
+	
+	public String HitHargaSatuanTtba(){
+		RepoMasbel.getHitSatuanTtba();		
+		return "Hitung Harga Satuan Successfully";
+	}
 
 }

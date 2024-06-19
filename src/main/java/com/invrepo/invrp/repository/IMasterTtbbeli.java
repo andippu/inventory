@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -22,6 +23,9 @@ public interface IMasterTtbbeli extends JpaRepository <MasterTtbbeli,Integer> {
 	
 	@Query(value = "SELECT * FROM MASTER_TTBBELI S WHERE TO_CHAR(TTBBELI_TGL,'dd/mm/yyyy')=?1 AND TTBBELI_NO=?2",nativeQuery = true)
     public List<MasterTtbbeli> getMtByBeliNoMonth(String month, String belino);
+	
+	@Procedure(procedureName = "HIT_HRG_SATUAN_TTBA")
+	public String getHitSatuanTtba();
 	
 	Optional<MasterTtbbeli> findByTtbbeliNo(String belino);
 
