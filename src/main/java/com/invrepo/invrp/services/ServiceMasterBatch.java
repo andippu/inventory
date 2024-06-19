@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import com.invrepo.invrp.models.MasterBatch;
 import com.invrepo.invrp.repository.IMasterBatch;
 
-
-
 @Service
 public class ServiceMasterBatch {
 

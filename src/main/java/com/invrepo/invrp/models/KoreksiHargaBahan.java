@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "KOREKSI_HARGA_BAHAN")
-@IdClass(MasterBatchCompKey.class)
 public class KoreksiHargaBahan {
 	
 	@Id
