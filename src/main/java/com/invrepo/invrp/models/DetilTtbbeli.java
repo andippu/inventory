@@ -6,6 +6,7 @@ import java.util.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,50 +17,51 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "DETIL_TTBBELI")
-
+@IdClass(DetilTtbbeliCompKey.class)
 public class DetilTtbbeli {
 	
 	@Id
     @Column(name="DETIL_TTBBELI_NO",length=50)
-    private String detilTtbbeliNo;
+    private String dtlttbbeliNo;
 	
+	@Id
     @Column(name="TTBBELI_BAHAN_CODE",length=12)
-    private String detilTtbbeliBahanCode;
+    private String dtlttbbahancode;
 	
     @Column(name="TTBBELI_JNS_BAHAN",length=3)
-    private String detilTtbbeliJnsBahan;
+    private String dtlttbbeliJnsBahan;
     
     @Column(name="TTB_BELI_JUMLAH")
-	private BigInteger detilTtbbeliJumlah;
+	private BigInteger dtlttbbeliJumlah;
 	
 	@Column(name="TTBBELI_CREATED_BY",length=20)
-    private String detilTtbbeliCreatedBy;
+    private String dtlttbbeliCreatedBy;
 	
 	@Column (name="TTBBELI_CREATED_DATE")
-    private Date detilTtbbeliCreatedDate;
+    private Date dtlttbbeliCreatedDate;
 	
 	@Column(name="TTB_HRG")
-	private BigInteger detilTtbbeliHrg;
+	private BigInteger dtlttbHrg;
 	
 	@Column(name="TTB_KURS_CODE",length=2)
-    private String detilTtbbeliKursCode;
+    private String dtlttbKursCode;
 	
 	@Column(name="TTB_TOTAL")
-	private BigInteger detilTtbbeliTotal;
+	private BigInteger dtlttbTotal;
 	
 	@Column(name="KURS_RATE")
-	private BigInteger detilTtbbeliKursRate;
+	private BigInteger dtlttbKursRate;
 	
 	@Column(name="TTB_PPN")
-	private BigInteger detilTtbbeliPpn;
+	private BigInteger dtlttbPpn;
 	
 	@Column(name="TTB_GRANDTOTAL")
-	private BigInteger detilTtbbeliGrandtotal;
+	private BigInteger dtlttbGrandtotal;
 	
 	@Column(name="TTB_BIAYAADMIN")
-	private BigInteger detilTtbbeliBiayaadmin;
+	private BigInteger dtlttbBiayadmin;
 	
 	@Column(name="GKG")
-	private BigInteger detilTtbbeliGkg;
+	private BigInteger dtlttbGkg;
 
 }

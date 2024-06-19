@@ -49,6 +49,11 @@ public class ServiceDetilTransBrgpbrk {
 		return "Delete Successfully";
 	}
 	
+	public String DelTransPabrik(String BATCHNO, String MTPTYPE,String BRCODE, Integer DTPQTY, String MTPSTATUS){
+		RepoDtlbpbrk.getDelTransPabrik(BATCHNO, MTPTYPE, BRCODE, DTPQTY, MTPSTATUS);		
+		return "Delete Pabrik Successfully";
+	}
+	
 	public String saveUpdateDtlBrgpbrk(DetilTransBrgpbrk dtlbrgpbrk) {
 		RepoDtlbpbrk.save(dtlbrgpbrk);
 		return "Submit Successfully";

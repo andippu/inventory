@@ -1,6 +1,5 @@
 package com.invrepo.invrp.services;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +49,8 @@ public class ServiceDetilTransBrglokal {
 		return "Delete Successfully";
 	}
 	
-	public String DelTransLokal(String BATCHNO, String MTLTYPE,String BRCODE, BigDecimal DTLQTY) {
-		RepoDtlblokal.getDelTransLokal(BATCHNO,  MTLTYPE, BRCODE,  DTLQTY);		
+	public String DelTransLokal(String BATCHNO, String MTLTYPE,String BRCODE, Integer DTLQTY) {
+		RepoDtlblokal.getDelTransLokal(BATCHNO, MTLTYPE, BRCODE, DTLQTY);		
 		return "Delete lokal Successfully";
 	}
 	

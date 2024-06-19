@@ -17,7 +17,7 @@ import com.invrepo.invrp.services.ServiceProduksi;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
-public class ControllerMasterTtbbelino {
+public class ControllerMasterTtbbeli {
 	
 	@Autowired
 	ServiceMasterTtbbeli ServMasbel;
@@ -35,11 +35,11 @@ public class ControllerMasterTtbbelino {
 	
 	@GetMapping("/masbel/getmasbelbymonth")
 	public List<MasterTtbbeli> getMasBelByMonth(String month){
-        return ServMasbel.getMasBelByBeliNoMonth(month, month);
+        return ServMasbel.getMasBelByMonth(month);
     }
 	
 	@GetMapping("/masbel/getmasbelbybelinomonth")
-	public List<MasterTtbbeli> getMasBelByMonth(String month, String belino){
+	public List<MasterTtbbeli> getMasBelByNoMonth(String month, String belino){
         return ServMasbel.getMasBelByBeliNoMonth(month, belino);
     }
 	
