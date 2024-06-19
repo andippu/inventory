@@ -51,7 +51,12 @@ public class ControllerMasterTtbbeli {
 	@PostMapping("/masbel/saveupdmasbel")
 	public String saveUpdateProduksi(@RequestBody MasterTtbbeli masbel) {
 		return ServMasbel.saveUpdateMasterTtbbeli(masbel);
+	}
 	
+	@GetMapping("/masbel/hithargasatuanttba")
+	public String HitSatuanTtba(){
+		ServMasbel.HitHargaSatuanTtba();
+		return "Hitung Harga Satuan Successfully";
 	}
 
 }
