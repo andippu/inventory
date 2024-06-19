@@ -1,5 +1,6 @@
 package com.invrepo.invrp.repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -35,7 +36,7 @@ public interface IDetilTransBrglokal extends JpaRepository <DetilTransBrglokal,D
     int getDelByMtlnoSingle(String mtlno, String type,String brcode,String batchno);
 	
 	@Procedure(procedureName = "TRIG_DELETE_TRANSLOKAL")
-	public String getDelTransLokal(String batchno, String mtltype,String brcode, Integer dtlqty);
+	public String getDelTransLokal(String BATCHNO, String MTLTYPE,String BRCODE, BigDecimal DTLQTY);
 	
 	List<DetilTransBrglokal> findByDtlMtlNo(String mtlno);
 	

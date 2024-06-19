@@ -1,5 +1,6 @@
 package com.invrepo.invrp.Controllers;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,8 +65,8 @@ public class ControllerDetilTransBrglokal {
     }
 	
 	@GetMapping("/dtlbrglokal/deltranslokal")
-	public String DelTransLokal(String batchno, String mtltype,String brcode, Integer dtlqty){
-		ServDtlblokal.DelTransLokal(batchno, mtltype, brcode, dtlqty);
+	public String DelTransLokal(String BATCHNO, String MTLTYPE,String BRCODE, BigDecimal DTLQTY){
+		ServDtlblokal.DelTransLokal(BATCHNO,  MTLTYPE, BRCODE,  DTLQTY);
 		return "Delete lokal";
 	}
 	
