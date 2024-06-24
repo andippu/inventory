@@ -3,6 +3,8 @@ package com.invrepo.invrp.models;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +22,7 @@ public class KoreksiHargaBahan {
     private BigDecimal kbhId;
 	
 	@Column(name="KHB_DATE")
+	 @JsonFormat(pattern="dd-MM-yyyy")
     private Date kbhDate;
 	
 	@Column(name="KHB_HARGA")

@@ -18,8 +18,8 @@ public class ServiceKoreksiStock {
 	@Autowired
 	IKoreksiStockRepository repoKS;
 	
-	public List<KoreksiStock> getKoreksiStock(Date pdate){
-		return repoKS.findByKsDate(pdate);
+	public List<KoreksiStock> getKoreksiStock(String pdate){
+		return repoKS.getByKsDate(pdate);
 	}
 	
 	

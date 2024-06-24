@@ -23,7 +23,7 @@ public class ControllerKoreksiStock {
 	ServiceKoreksiStock servKS;
 	
 	@GetMapping("/koreksiStock/ksList")
-	public List<KoreksiStock> getKoreksiStock(Date pdate){
+	public List<KoreksiStock> getKoreksiStock(String pdate){
 		return servKS.getKoreksiStock(pdate);
 	}
 	
@@ -33,7 +33,7 @@ public class ControllerKoreksiStock {
 	}
 	
 	@PostMapping("/koreksiStock/saveupdkorstrock")
-	public String saveUpdKoreksiStock (KoreksiStock ks) {		
+	public String saveUpdKoreksiStock (@RequestBody KoreksiStock ks) {		
 		return servKS.saveUpdKoreksiStock(ks);
 	}
 }

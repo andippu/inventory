@@ -23,7 +23,7 @@ public class ControllerKoreksiHrgBhn {
 	ServiceKoreksiHrgBhn servKBH;
 	
 	@GetMapping("/khrgbhn/kbhList")
-	public List<KoreksiHargaBahan> getKoreksiHrgBahan(Date pdate){
+	public List<KoreksiHargaBahan> getKoreksiHrgBahan(String pdate){
 		return servKBH.getKoreksiHrgBahan(pdate);
 	}
     

@@ -17,8 +17,8 @@ public class ServiceKoreksiHrgBhn {
 	@Autowired
 	IKoreksiHrgBhnRepository repoKHB;
 	
-	public List<KoreksiHargaBahan> getKoreksiHrgBahan(Date pdate){
-		return repoKHB.findByKbhDate(pdate);
+	public List<KoreksiHargaBahan> getKoreksiHrgBahan(String pdate){
+		return repoKHB.getByKbhDate(pdate);
 	}
 
 	public List<KoreksiHargaBahan> getKoreksiHrgBahanCU(BigDecimal ksid){

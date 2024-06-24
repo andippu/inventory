@@ -16,8 +16,8 @@ import com.invrepo.invrp.models.KoreksiStock;
 @Repository
 @CrossOrigin("http://localhost:4200")
 public interface IKoreksiHrgBhnRepository extends JpaRepository<KoreksiHargaBahan,BigDecimal> {
-	
-	public List<KoreksiHargaBahan> findByKbhDate(Date pdate);
+	@Query(value = "SELECT * FROM KOREKSI_HARGA_BAHAN S WHERE TO_CHAR(KHB_DATE,'Mon dd yyyy')=?1",nativeQuery = true)
+	public List<KoreksiHargaBahan> getByKbhDate(String pdate);
 	
 	public List<KoreksiHargaBahan> findByKbhId(BigDecimal ksid);
 

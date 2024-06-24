@@ -15,8 +15,8 @@ import com.invrepo.invrp.models.KoreksiStock;
 @Repository
 @CrossOrigin("http://localhost:4200")
 public interface IKoreksiStockRepository extends JpaRepository<KoreksiStock, BigDecimal>{
-	
-	public List<KoreksiStock> findByKsDate(Date pdate);
+	@Query(value = "SELECT * FROM KOREKSI_STOCK S WHERE TO_CHAR(TGL,'Mon dd yyyy')=?1",nativeQuery = true)
+	public List<KoreksiStock> getByKsDate(String pdate);
 	
 	public List<KoreksiStock> findByKsId(BigDecimal ksid);
 
