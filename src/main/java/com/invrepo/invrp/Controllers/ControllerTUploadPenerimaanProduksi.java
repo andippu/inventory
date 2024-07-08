@@ -24,4 +24,14 @@ public class ControllerTUploadPenerimaanProduksi {
 	public List<TUploadPenerimaanProduksi> getTUpTerimaProduksi(){
 		return servtupp.getTUpTerimaProdList();
 	}
+	
+	@PostMapping("/tupp/execinsertupload")
+	 public String insTUpPbOto (@RequestBody TUploadPenerimaanProduksi data){
+		return servtupp.insTUpPbOto(data);
+	}
+	
+	@GetMapping("/tupp/checkuploadpprod")
+	public void chechktUploadprod() {
+		servtupp.checkTTupp();
+	}
 }

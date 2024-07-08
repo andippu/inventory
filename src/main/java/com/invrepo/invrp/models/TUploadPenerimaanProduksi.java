@@ -25,7 +25,7 @@ public class TUploadPenerimaanProduksi {
     private BigDecimal tuppId;
 	
 	
-    @Column(name="NOBATCH",length=30, nullable = false)
+    @Column(name="NOBATCH",length=30)
     private String tuppNoBatch;
 	
 	
