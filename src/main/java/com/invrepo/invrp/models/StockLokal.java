@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "STOCK_LOKAL")
 @IdClass(StockLokalCompKey.class)
-
 public class StockLokal {
 	
 	@Id

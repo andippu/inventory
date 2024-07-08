@@ -14,7 +14,6 @@ import com.invrepo.invrp.models.BatchBahanBakuCompKey;
 
 import jakarta.transaction.Transactional;
 
-
 @Repository
 @CrossOrigin("http://localhost:4200")
 public interface IBatchBahanBaku extends JpaRepository <BatchBahanBaku,BatchBahanBakuCompKey>{
