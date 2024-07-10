@@ -15,9 +15,17 @@ public class ServiceTUploadPenerimaanProduksi {
 	ITUploadPenerimaanProduksi repotupp;
 	
 	public List<TUploadPenerimaanProduksi> getTUpTerimaProdList(){
-		String temp=repotupp.exeTuppGetCsv();
-		System.out.println("temp :"+temp);
+		//String temp=repotupp.exeTuppGetCsv();
+		//System.out.println("temp :"+temp);
 		return repotupp.findAll();
+	}
+	
+	public String exeTuppGetCsv() {
+		return repotupp.exeTuppGetCsv();
+	}
+	
+	public String exePenerimaanProduksi() {
+		return repotupp.exeProsesPP();
 	}
 	
 	 public void checkTTupp() {
@@ -33,8 +41,7 @@ public class ServiceTUploadPenerimaanProduksi {
 	 
 	 public String insTUpPbOto (TUploadPenerimaanProduksi data){
 		 repotupp.save(data);
-		 repotupp.flush();
-		 
+		 repotupp.flush();		 
 	       return "Upload CSV Success";
 	}
 	

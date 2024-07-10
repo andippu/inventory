@@ -25,6 +25,16 @@ public class ControllerTUploadPenerimaanProduksi {
 		return servtupp.getTUpTerimaProdList();
 	}
 	
+	@GetMapping("/tupp/exetuppgetcsv")
+	public String exeTuppGetCsv() {
+		return servtupp.exeTuppGetCsv();
+	}
+	
+	@GetMapping("/tupp/exeterimaprod")
+	public String exePenerimaanProduksi() {
+		return servtupp.exePenerimaanProduksi();
+	}
+	
 	@PostMapping("/tupp/execinsertupload")
 	 public String insTUpPbOto (@RequestBody TUploadPenerimaanProduksi data){
 		return servtupp.insTUpPbOto(data);

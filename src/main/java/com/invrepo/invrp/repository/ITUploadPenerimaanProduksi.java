@@ -19,6 +19,9 @@ import jakarta.transaction.Transactional;
 @CrossOrigin("http://localhost:4200")
 public interface ITUploadPenerimaanProduksi extends JpaRepository <TUploadPenerimaanProduksi,BigDecimal>{
 
-	@Procedure(procedureName = "P_TUPP_GET_CSV")
+	@Procedure(procedureName = "P_CSV_PENERIMAANPROD")
 	public String exeTuppGetCsv();
+	
+	@Procedure(procedureName = "PROSES_PENERIMAAN_PROD")
+	public String exeProsesPP();
 }
