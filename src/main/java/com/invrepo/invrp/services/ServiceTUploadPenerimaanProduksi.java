@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.invrepo.invrp.models.TUploadPenerimaanProduksi;
 import com.invrepo.invrp.repository.ITUploadPenerimaanProduksi;
@@ -24,9 +25,7 @@ public class ServiceTUploadPenerimaanProduksi {
 		return repotupp.exeTuppGetCsv();
 	}
 	
-	public String exePenerimaanProduksi() {
-		return repotupp.exeProsesPP();
-	}
+	
 	
 	 public void checkTTupp() {
 	        List<TUploadPenerimaanProduksi> tup = repotupp.findAll(); // You can use findBy<YourField> if needed
@@ -45,6 +44,10 @@ public class ServiceTUploadPenerimaanProduksi {
 	       return "Upload CSV Success";
 	}
 	
+	 @GetMapping("/tupp/exeterimaprod")
+		public String exePenerimaanProduksi() {
+			return repotupp.exeTerimaprod();
+		}
 	
 
 }

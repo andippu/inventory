@@ -45,14 +45,25 @@ public class TUploadPenerimaanNonProduksi {
 	@Column(name="INOUT",length=3)
     private String tupnpInOut;
 	
-	@Column(name="KETERANGAN",length=100)
+	@Column(name="KETERANGAN",length=200)
     private String tupnpKeterangan;
 	
-	@Column(name="RINCIAN_KETERANGAN",length=3)
+	@Column(name="RINCIAN_KETERANGAN",length=200)
     private String tupnpRincianKet;
 	
 	@Column(name="ERR",length=80)
     private String tupnpError;
+	
+	@Column(name="KD_KET",length=3)
+    private String tupnpKdKet;
+	
+	@Column(name="NOBATCH",length=80)
+    private String tupnpNoBatch;
+	
+	@Column(name="KBNAME",length=80)
+    private String tupnpkBnAME;
+	
+
 	
 
 

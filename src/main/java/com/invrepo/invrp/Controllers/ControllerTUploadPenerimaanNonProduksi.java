@@ -22,9 +22,14 @@ public class ControllerTUploadPenerimaanNonProduksi {
 	@Autowired
 	ServiceTUploadPenerimaanNonProduksi servtupnp;
 	
-	@GetMapping("/tupp/terimanonprodlist")
+	@GetMapping("/tupnp/terimanonprodlist")
 	public List<TUploadPenerimaanNonProduksi> getTUpTerimaNonProdList(){
 		return servtupnp.getTUpTerimaNonProdList();
+	}
+	
+	@GetMapping("/tupnp/terimacsvnonprodlist")
+	public String getTUpTerimaCsvNonProdList(){
+		return servtupnp.exeCsvNonProduksi();
 	}
 	
 }

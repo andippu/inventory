@@ -23,5 +23,9 @@ public interface ITUploadPenerimaanProduksi extends JpaRepository <TUploadPeneri
 	public String exeTuppGetCsv();
 	
 	@Procedure(procedureName = "PROSES_PENERIMAAN_PROD")
-	public String exeProsesPP();
+	public String exeTerimaprod();
+	
+	
+	
+
 }

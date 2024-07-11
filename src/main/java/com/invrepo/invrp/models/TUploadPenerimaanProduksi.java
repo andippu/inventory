@@ -22,20 +22,16 @@ public class TUploadPenerimaanProduksi {
 	
 	@Id
     @Column(name="TUPP_ID")
-    private BigDecimal tuppId;
-	
+    private BigDecimal tuppId;	
 	
     @Column(name="NOBATCH",length=30)
-    private String tuppNoBatch;
-	
+    private String tuppNoBatch;	
 	
     @Column(name="KDBRG",length=10)
-    private String tuppKdBrg;
-	
+    private String tuppKdBrg;	
 	
     @Column(name="KDBHN",length=10)
-    private String tuppKdBhn;
-	
+    private String tuppKdBhn;	
 	
     @Column(name="NMBRG",length=80)
     private String tuppNmBrg;

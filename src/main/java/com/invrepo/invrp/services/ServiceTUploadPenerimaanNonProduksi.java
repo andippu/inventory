@@ -20,6 +20,10 @@ public class ServiceTUploadPenerimaanNonProduksi {
 		return repotupnp.findAll();
 	}
 	
+	public String exeCsvNonProduksi() {
+		return repotupnp.exeProsesCsvPNP();
+	}
+	
 	
 
 }
