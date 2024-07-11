@@ -24,6 +24,10 @@ public class ServiceTUploadPenerimaanNonProduksi {
 		return repotupnp.exeProsesCsvPNP();
 	}
 	
+	public String exepProsesNonProduksi() {
+		return repotupnp.exeProsesPNP();
+	}
+	
 	
 
 }

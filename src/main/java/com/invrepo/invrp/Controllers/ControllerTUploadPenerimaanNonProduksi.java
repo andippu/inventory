@@ -32,4 +32,9 @@ public class ControllerTUploadPenerimaanNonProduksi {
 		return servtupnp.exeCsvNonProduksi();
 	}
 	
+	@GetMapping("/tupnp/prosesnonprod")
+	public String getTUpPProsesNonProdList(){
+		return servtupnp.exepProsesNonProduksi();
+	}
+	
 }

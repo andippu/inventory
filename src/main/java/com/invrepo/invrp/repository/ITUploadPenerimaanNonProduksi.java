@@ -22,4 +22,7 @@ public interface ITUploadPenerimaanNonProduksi extends JpaRepository <TUploadPen
 	@Procedure(procedureName = "P_CSV_NONPENERIMAANPROD")
 	public String exeProsesCsvPNP();
 	
+	@Procedure(procedureName = "PROSES_PENERIMAAN_NONPROD")
+	public String exeProsesPNP();
+	
 }
