@@ -27,7 +27,7 @@ public class TUploadPenerimaanNonProduksi {
 	@Column(name="KDBHN",length=20)
     private String tupnpKdBahan;
 	
-	@Column(name="NMBHN",length=20)
+	@Column(name="NMBHN",length=80)
     private String tupnpNmBahan;
 	
 	@Column(name="JB",length=3)
