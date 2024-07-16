@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.invrepo.invrp.models.TUploadTTBOtomatis;
 import com.invrepo.invrp.repository.ITUploadTTBOtomatis;
 import com.invrepo.invrp.services.ServiceTUploadTTBOtomatis;
-
-
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -22,8 +21,19 @@ public class ControllerTUploadTTBOtomatis {
 	@Autowired
 	ServiceTUploadTTBOtomatis servttb;
 	
-	public List<ITUploadTTBOtomatis> getTtbOtoList(){
+	@GetMapping("/tupttb/ttbotoList")
+	public List<TUploadTTBOtomatis> getTtbOtoList(){
 		return servttb.getTtbOtoList();
+	}
+	
+	@GetMapping("/tupttb/terimacsvttblist")
+	public String getTUpTerimaCsvNonProdList(){
+		return servttb.exeTtbGetCsv();
+	}
+	
+	@GetMapping("/tupttb/prosesttb")
+	public String getTUpPProsesNonProd(){
+		return servttb.exeProsesTtb();
 	}
 	
 	

@@ -11,10 +11,18 @@ import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.invrepo.invrp.models.TUploadTTBOtomatis;
+
 import jakarta.transaction.Transactional;
 
 @Repository
 @CrossOrigin("http://localhost:4200")
-public interface ITUploadTTBOtomatis extends JpaRepository <ITUploadTTBOtomatis,Integer> {
+public interface ITUploadTTBOtomatis extends JpaRepository <TUploadTTBOtomatis,Integer> {
+	
+	@Procedure(procedureName = "P_CSV_TTBOTOMATIS")
+	public String exeProsesCsvTBO();
+	
+	@Procedure(procedureName = "PROSES_TTB_OTOMATIS")
+	public String exeProsesTBO();
 
 }

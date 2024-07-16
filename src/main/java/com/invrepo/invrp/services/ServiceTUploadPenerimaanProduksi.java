@@ -44,7 +44,7 @@ public class ServiceTUploadPenerimaanProduksi {
 	       return "Upload CSV Success";
 	}
 	
-	 @GetMapping("/tupp/exeterimaprod")
+	
 		public String exePenerimaanProduksi() {
 			return repotupp.exeTerimaprod();
 		}
