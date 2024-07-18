@@ -24,7 +24,7 @@ public class TUploadLapProdHpp {
     @Column(name="NO_PPK", length =200)
     private String tuplphPPkNo;
 	
-	 @Column(name="PERIODE", length =6)
+	 @Column(name="PERIODE", length =7)
 	    private String tuplphPeriode;
 	 
 	 @Column(name="PRODUK", length =200)
