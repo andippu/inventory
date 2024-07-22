@@ -21,4 +21,16 @@ public class ServiceTuploadTransaksiBarang {
 	public List<TuploadTransaksiBarang> getTransBrgList(){
 		return repoTB.findAll();
 	}
+	
+	public String exeTB1BpHpCsv() {
+		return repoTB.exeProsesCsvTb1();
+	}
+	
+	public String exeTB2SpbSelainCsv() {
+		return repoTB.exeProsesCsvTb2();
+	}
+	
+	public String exeProcessTransBrg(String RT, String TIPE , String STAT) {
+		return repoTB.exeProsesTransBrg(RT, TIPE, STAT);
+	}
 }

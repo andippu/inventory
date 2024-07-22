@@ -47,6 +47,9 @@ public class TuploadTransaksiBarang {
 	 
 	 @Column(name="KETERANGAN", length=100)
 	 private String tutbKeterangan;	
+	 
+	 @Column(name="NM_PROD", length=80)
+	 private String tutbNmProd;	
 
 
 }

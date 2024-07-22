@@ -23,8 +23,24 @@ public class ControllerTuploadTransaksiBarang {
 	@Autowired
 	ServiceTuploadTransaksiBarang servTB;
 	
+	@GetMapping("/tutrbr/trbrlist")
 	public List<TuploadTransaksiBarang> getTransBrgList(){
 		return servTB.getTransBrgList();
+	}
+	
+	@GetMapping("/tutrbr/terimacsvtb1")
+	public String exeTB1BpHpCsv() {
+		return servTB.exeTB1BpHpCsv();
+	}
+	
+	@GetMapping("/tutrbr/terimacsvtb2")
+	public String exeTB2SpbSelainCsv() {
+		return servTB.exeTB2SpbSelainCsv();
+	}
+	
+	@GetMapping("/tutrbr/terimatransBarang")
+	public String exeProcessTransBrg(String rt, String tipe , String stat) {
+		return servTB.exeProcessTransBrg(rt, tipe, stat);
 	}
 
 }

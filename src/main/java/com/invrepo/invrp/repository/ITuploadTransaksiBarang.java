@@ -17,5 +17,17 @@ import com.invrepo.invrp.models.TuploadTransaksiBarang;
 @Repository
 @CrossOrigin("http://localhost:4200")
 public interface ITuploadTransaksiBarang  extends JpaRepository <TuploadTransaksiBarang, String> {
+	
+	@Procedure(procedureName = "P_CSV_TB1BPHP")
+	public String exeProsesCsvTb1();
+	
+	@Procedure(procedureName = "P_CSV_TB2SPBSELAIN")
+	public String exeProsesCsvTb2();
+	
+	@Procedure(procedureName = "P_UPLOADTRANSAKSI_BARANG")
+	public String exeProsesTransBrg(String RT, String TIPE , String STAT);
+	
+	
 
 }
+
