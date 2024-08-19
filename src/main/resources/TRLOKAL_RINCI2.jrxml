@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.1.final using JasperReports Library version 6.21.0-4f56c4f36cd19e17675219a9ac4692d5f0f13b06  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TRLOKAL_RINCI2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5437af3c-0b85-4598-a3d3-ddfa9b70cd35">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[IlJQVF9UUkxPS0FMX1JJTkNJMiIgQVMgLDkxLDczLDA2MmE0MTg0LTgyOTctNDcwOC05MjlmLTg3
+NmM4MWZkN2Q3ZDs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="RI_DB"/>
+	<parameter name="br1" class="java.lang.String"/>
+	<parameter name="br2" class="java.lang.String"/>
+	<parameter name="period" class="java.lang.String"/>
+	<field name="rtlrcBrCode" class="java.lang.String"/>
+	<field name="rtlrcBrName" class="java.lang.String"/>
+	<field name="rtlrcBatchNo" class="java.lang.String"/>
+	<field name="rtlrcStockAwal" class="java.lang.Integer"/>
+	<field name="rtlrcDate" class="java.lang.String"/>
+	<field name="rtlrcDesc" class="java.lang.String"/>
+	<field name="rtlrcQtyOut" class="java.lang.Integer"/>
+	<field name="rtlrcQtyIn" class="java.lang.Integer"/>
+	<field name="rtlrcNoSpb" class="java.lang.String"/>
+	<field name="rtlrcNo" class="java.lang.String"/>
+	<field name="rtlrcPeriodMonth" class="java.lang.String"/>
+	<field name="rtlrcPeriod" class="java.lang.String"/>
+	<variable name="totmasuk" class="java.lang.Integer" resetType="Group" resetGroup="GroupProduct" calculation="Sum">
+		<variableExpression><![CDATA[$F{rtlrcQtyIn}]]></variableExpression>
+	</variable>
+	<variable name="totkeluar" class="java.lang.Integer" resetType="Group" resetGroup="GroupProduct" calculation="Sum">
+		<variableExpression><![CDATA[$F{rtlrcQtyOut}]]></variableExpression>
+	</variable>
+	<variable name="StokAkhir" class="java.lang.Integer" resetType="Group" resetGroup="GroupProduct">
+		<variableExpression><![CDATA[$F{rtlrcStockAwal}+$V{totmasuk}-$V{totkeluar}]]></variableExpression>
+	</variable>
+	<group name="GroupProduct" isStartNewPage="true" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{rtlrcBrName}]]></groupExpression>
+		<groupHeader>
+			<band height="71">
+				<staticText>
+					<reportElement x="0" y="20" width="100" height="15" uuid="79d87138-c136-4d18-ab25-fd0824be2c2e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<text><![CDATA[Produk]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="237" y="20" width="100" height="15" uuid="986143ec-6f28-4563-bcd6-2d983aefcd96">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[No. Batch]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="480" y="20" width="74" height="15" uuid="4e694a6d-c333-4875-93c4-5a3f4d769bc8">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<text><![CDATA[Stock Awal]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="32" width="220" height="15" uuid="6d14048c-4e30-4abf-85c3-c62486a77a42">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{rtlrcBrName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="237" y="35" width="100" height="15" uuid="883b8b55-e126-4f17-877c-61757d8e22b0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{rtlrcBatchNo}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="480" y="35" width="74" height="15" uuid="0fbaeed8-c993-48c6-80f3-1a1d170d8b4f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{rtlrcStockAwal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="54" width="32" height="15" uuid="1f17e35f-43b0-4966-b7f0-f21772b2f65b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineStyle="Solid" lineColor="#0A0101"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Tgl]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="35" y="54" width="182" height="15" uuid="3149399f-1ff8-47bc-8574-dc8323c7d2b5">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineColor="#0A0101"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Keterangan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="220" y="54" width="45" height="15" uuid="4e77fb66-b3e1-4e8c-89d2-d964585692f5">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineStyle="Solid" lineColor="#0A0101"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[No. Batch]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="267" y="54" width="128" height="15" uuid="e3df6c8f-ca04-4c30-aaab-2a4391ad0242">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[No. SPB]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="478" y="54" width="78" height="15" uuid="2b086c7a-cdef-4555-868c-8d6cb91c8ea2">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineStyle="Solid" lineColor="#0A0101"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Keluar]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="397" y="54" width="78" height="15" uuid="458ba4e8-b857-42b1-b094-9e02a429abab">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineStyle="Solid" lineColor="#0A0101"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#0A0101"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Masuk]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="241" y="-2" width="36" height="17" uuid="fad42b39-74d7-406f-a9d4-1928e8567be4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Per : ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="278" y="-2" width="70" height="17" uuid="cd3d641b-2ffd-4cb9-8d0d-e545fb3c306a"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{rtlrcPeriodMonth}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="37">
+				<staticText>
+					<reportElement x="360" y="0" width="33" height="15" uuid="9af89f74-e471-470b-8314-6fc9f60115d1">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Total  :]]></text>
+				</staticText>
+				<textField pattern="#,##0.00">
+					<reportElement x="395" y="-1" width="80" height="16" uuid="578857e8-5d4a-442d-84cb-ca38254297dd"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totmasuk}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="480" y="0" width="74" height="16" uuid="4e7cf27f-0471-42b7-9c58-6be01269a9fc"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totkeluar}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="319" y="17" width="237" height="1" uuid="0c71b21b-4b09-4ebe-8420-40df7dabb4f5"/>
+				</line>
+				<staticText>
+					<reportElement x="332" y="20" width="62" height="15" uuid="2581c777-d212-44e7-b45b-9800430b1eba">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Stock Akhir  :]]></text>
+				</staticText>
+				<textField pattern="#,##0.00">
+					<reportElement x="463" y="20" width="91" height="15" uuid="8b5cf733-dc4b-45d0-a0ad-bf44aa87abc6">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{StokAkhir}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="170" y="17" width="233" height="17" uuid="e88c25a7-87a7-47fc-959e-f93de340496f">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Sort By : Kode dan No. Batch]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="248" y="34" width="54" height="17" uuid="66d46915-4c91-4892-b7c2-076e98fa936f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{br2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="303" y="34" width="18" height="17" uuid="9f4b1f00-f65c-4462-a18c-f7019f63e2e6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[To]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="322" y="34" width="54" height="17" uuid="19b83a97-7fd7-4eb0-949e-25ca07ae6cb4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{br2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="552b8228-28ac-4e61-bc45-70281dc9a5e0"/>
+				<text><![CDATA[PT. Lapi Laboratories]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="454" y="0" width="100" height="15" uuid="f934a3cb-3a4b-4f56-bf94-840f42b30178"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="170" y="0" width="233" height="17" uuid="323efc5c-1672-4886-9c02-6ceb291f6d5f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kartu Persediaan Barang (Gudang Lokal)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="34" width="40" height="17" uuid="2c0067e3-1995-4614-a9e1-ab2a4b577213">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[From  :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="30" height="15" uuid="7958d95d-7ef7-4134-92fc-f90c7d61b612">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rtlrcDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="0" width="184" height="15" uuid="0c756989-65f1-4806-bd0f-a91980d178d1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rtlrcDesc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="43" height="15" uuid="540aa6a0-7b0b-41e9-8813-c63efa388118">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rtlrcBatchNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="0" width="126" height="15" uuid="1540a4f1-6f23-49a7-86dc-a412e93c4016">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rtlrcNoSpb}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="395" y="0" width="78" height="15" uuid="92d09a56-fb69-4187-99f2-05311f1569f6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rtlrcQtyIn}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="476" y="0" width="78" height="15" uuid="0587d336-6882-4f62-9626-05954ae9ea59">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rtlrcQtyOut}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
