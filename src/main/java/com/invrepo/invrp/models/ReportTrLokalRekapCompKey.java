@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class ReportTrLokalRinci2CompKey implements Serializable {
-	 private String rtlrcBrCode;
-	 private String rtlrcBatchNo;
+public class ReportTrLokalRekapCompKey implements Serializable {
+	private String rtlkmBrCode;
+	private String rtlkmBatchNo;
 }

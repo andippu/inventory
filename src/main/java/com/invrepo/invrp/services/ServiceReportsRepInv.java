@@ -16,8 +16,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
 import com.invrepo.invrp.models.ReportRekapTTB;
+import com.invrepo.invrp.models.ReportTrLokalRekap;
 import com.invrepo.invrp.models.ReportTrLokalRinci2;
 import com.invrepo.invrp.repository.IReportRekapTTB;
+import com.invrepo.invrp.repository.IReportTrLokalRekap;
 import com.invrepo.invrp.repository.IReportTrLokalRinci2;
 
 import net.sf.jasperreports.engine.JREmptyDataSource;
@@ -36,6 +38,8 @@ public class ServiceReportsRepInv {
 	IReportRekapTTB repoRRTTB;	
 	@Autowired
 	IReportTrLokalRinci2 repoRTLRC;
+	@Autowired
+	IReportTrLokalRekap repoRTLKM;
 	
 	public void LapRekapTTB(String period, HttpServletResponse response) throws JRException, IOException {
 		List<ReportRekapTTB> RLBM= repoRRTTB.findByRrttbPeriodOrderByRrttbTtbDate(period);
@@ -57,6 +61,18 @@ public class ServiceReportsRepInv {
 		parameters.put("br1", br1);	
 		parameters.put("br2", br2);	
 		parameters.put("period", period);		
+		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+		JasperExportManager.exportReportToPdfStream(jasperPrint,response.getOutputStream());
+	}
+	
+	public void LapTrLokalRekap(String period, String br1, String br2, String stb, HttpServletResponse response) throws JRException, IOException {
+		List<ReportTrLokalRekap> RTLKM= repoRTLKM.getRTLKMList(period, br1, br2, stb);
+		File file = ResourceUtils.getFile("classpath:TRLOKAL_REKAP.jrxml");		
+		JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());		
+		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(RTLKM);		
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("br1", br1);	
+		parameters.put("br2", br2);		
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 		JasperExportManager.exportReportToPdfStream(jasperPrint,response.getOutputStream());
 	}

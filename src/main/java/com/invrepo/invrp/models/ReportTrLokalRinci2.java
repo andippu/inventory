@@ -17,7 +17,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name= "RPT_REKAP_TTB")
+@Table(name= "RPT_TRLOKAL_RINCI2")
 @IdClass(ReportTrLokalRinci2CompKey.class)
 public class  ReportTrLokalRinci2{
 	@Id
