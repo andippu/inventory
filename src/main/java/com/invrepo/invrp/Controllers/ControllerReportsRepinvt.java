@@ -56,9 +56,20 @@ public class ControllerReportsRepinvt {
 	       DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss");
 	       String currentDateTime = dateFormatter.format(new Date());
 	       String headerKey = "Content-Disposition";
-	       String headerValue = "attachment; filename=Laporan Trlokal Rinci dua " + currentDateTime + ".pdf";
+	       String headerValue = "attachment; filename=Laporan Trlokal Rinci2 " + currentDateTime + ".pdf";
 	       response.setHeader(headerKey, headerValue);
 	       servRRTTB.LapRekapRinci2(period, br1, br2, batch1, batch2, response);
+	    }
+	 
+	 @GetMapping("/pdf/reportTrLokalRinciduaperiod")
+	 public void TrLokalRinci2PeriodPDF(String period, String br1, String br2, String batch1, String batch2, HttpServletResponse response) throws IOException, JRException {
+	       response.setContentType("application/pdf");
+	       DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss");
+	       String currentDateTime = dateFormatter.format(new Date());
+	       String headerKey = "Content-Disposition";
+	       String headerValue = "attachment; filename=Laporan Trlokal Rinci2 By Period " + currentDateTime + ".pdf";
+	       response.setHeader(headerKey, headerValue);
+	       servRRTTB.LapRekapRinci2Period(period, br1, br2, batch1, batch2, response);
 	    }
 	 
 	 @GetMapping("/pdf/reportTrLokalRekap")
@@ -67,9 +78,20 @@ public class ControllerReportsRepinvt {
 	       DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss");
 	       String currentDateTime = dateFormatter.format(new Date());
 	       String headerKey = "Content-Disposition";
-	       String headerValue = "attachment; filename=Laporan Trlokal Rinci dua " + currentDateTime + ".pdf";
+	       String headerValue = "attachment; filename=Laporan Trlokal Rekap " + currentDateTime + ".pdf";
 	       response.setHeader(headerKey, headerValue);
 	       servRRTTB.LapTrLokalRekap(period, br1, br2, stb, response);
+	    }
+	 
+	 @GetMapping("/pdf/reportTrLokalRekapPeriod")
+	 public void TrLokalRekapPeriodPDF(String period, String br1, String br2, String stb, HttpServletResponse response) throws IOException, JRException {
+	       response.setContentType("application/pdf");
+	       DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss");
+	       String currentDateTime = dateFormatter.format(new Date());
+	       String headerKey = "Content-Disposition";
+	       String headerValue = "attachment; filename=Laporan Trlokal Rekap By Period " + currentDateTime + ".pdf";
+	       response.setHeader(headerKey, headerValue);
+	       servRRTTB.LapTrLokalRekapPeriod(period, br1, br2, stb, response);
 	    }
 	 
 	
