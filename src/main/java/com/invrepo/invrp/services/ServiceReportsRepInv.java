@@ -15,11 +15,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
+import com.invrepo.invrp.models.ReportBatchMaster;
+import com.invrepo.invrp.models.ReportBatchMasterWip;
 import com.invrepo.invrp.models.ReportRekapTTB;
 import com.invrepo.invrp.models.ReportTrLokalRekap;
 import com.invrepo.invrp.models.ReportTrLokalRekapPeriod;
 import com.invrepo.invrp.models.ReportTrLokalRinci2;
 import com.invrepo.invrp.models.ReportTrLokalRinci2Period;
+import com.invrepo.invrp.repository.IReportBatchMaster;
+import com.invrepo.invrp.repository.IReportBatchMasterWip;
 import com.invrepo.invrp.repository.IReportRekapTTB;
 import com.invrepo.invrp.repository.IReportTrLokalRekap;
 import com.invrepo.invrp.repository.IReportTrLokalRekapPeriod;
@@ -48,6 +52,10 @@ public class ServiceReportsRepInv {
 	IReportTrLokalRekap repoRTLKM;
 	@Autowired
 	IReportTrLokalRekapPeriod repoRTLKMP;
+	@Autowired
+	IReportBatchMaster repoRBM;
+	@Autowired
+	IReportBatchMasterWip repoRBMW;
 	
 	public void LapRekapTTB(String period, HttpServletResponse response) throws JRException, IOException {
 		List<ReportRekapTTB> RLBM= repoRRTTB.findByRrttbPeriodOrderByRrttbTtbDate(period);
@@ -106,6 +114,30 @@ public class ServiceReportsRepInv {
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("br1", br1);	
 		parameters.put("br2", br2);		
+		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+		JasperExportManager.exportReportToPdfStream(jasperPrint,response.getOutputStream());
+	}
+	
+	public void LapMasterBatch(String brcode, String period, HttpServletResponse response) throws JRException, IOException {
+		List<ReportBatchMaster> RBM= repoRBM.findByRbmBrCodeContainingAndRbmPeriod(brcode, period);
+		File file = ResourceUtils.getFile("classpath:LAP_BATCH_MASTER.jrxml");		
+		JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());		
+		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(RBM);		
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("brcode", brcode);	
+		parameters.put("period", period);		
+		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+		JasperExportManager.exportReportToPdfStream(jasperPrint,response.getOutputStream());
+	}
+	
+	public void LapMasterBatchWIP(String brcode, String period, HttpServletResponse response) throws JRException, IOException {
+		List<ReportBatchMasterWip> RBMW= repoRBMW.findByRbmBrCodeContainingAndRbmPeriod(brcode, period);
+		File file = ResourceUtils.getFile("classpath:LAP_BATCH_MASTER_WIP.jrxml");		
+		JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());		
+		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(RBMW);		
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("brcode", brcode);	
+		parameters.put("period", period);		
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 		JasperExportManager.exportReportToPdfStream(jasperPrint,response.getOutputStream());
 	}

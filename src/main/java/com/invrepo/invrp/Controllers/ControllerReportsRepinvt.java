@@ -94,6 +94,28 @@ public class ControllerReportsRepinvt {
 	       servRRTTB.LapTrLokalRekapPeriod(period, br1, br2, stb, response);
 	    }
 	 
+	 @GetMapping("/pdf/reportMasterBatch")
+	 public void MasterBatchPDF(String brcode, String period, HttpServletResponse response) throws IOException, JRException {
+	       response.setContentType("application/pdf");
+	       DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss");
+	       String currentDateTime = dateFormatter.format(new Date());
+	       String headerKey = "Content-Disposition";
+	       String headerValue = "attachment; filename=Laporan Trlokal Rekap By Period " + currentDateTime + ".pdf";
+	       response.setHeader(headerKey, headerValue);
+	       servRRTTB.LapMasterBatch(brcode, period, response);
+	    }
+	 
+	 @GetMapping("/pdf/reportMasterBatchWip")
+	 public void MasterBatchWipPDF(String brcode, String period, HttpServletResponse response) throws IOException, JRException {
+	       response.setContentType("application/pdf");
+	       DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd:hh:mm:ss");
+	       String currentDateTime = dateFormatter.format(new Date());
+	       String headerKey = "Content-Disposition";
+	       String headerValue = "attachment; filename=Laporan Trlokal Rekap By Period " + currentDateTime + ".pdf";
+	       response.setHeader(headerKey, headerValue);
+	       servRRTTB.LapMasterBatchWIP(brcode, period, response);
+	    }
+	 
 	
 
 }
