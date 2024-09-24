@@ -142,6 +142,13 @@ public class ServiceReportsRepInv {
 		JasperExportManager.exportReportToPdfStream(jasperPrint,response.getOutputStream());
 	}
 	
+	public String runKartuBaku(String awal, String akhir) {
+		return repoRBM.runKartuBaku(awal, akhir);
+	}
+	
+	public String runKartuKemas(String awal, String akhir) {
+		return repoRBM.runKartuKemas(awal, akhir);
+	}
  
 	
 

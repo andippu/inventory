@@ -1,9 +1,12 @@
 package com.invrepo.invrp.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.invrepo.invrp.models.ReportTrLokalRinci2;
@@ -14,6 +17,8 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperPrint;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,6 +32,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperExportManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +43,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControllerReportsRepinvt {
 	@Autowired
 	ServiceReportsRepInv servRRTTB;
+	
+	 private final Path fileStorageLocation = Paths.get("D:\\UPLOADFILES");
 
 	
 	 @GetMapping("/pdf/reporLapRekapTtb")
@@ -116,6 +124,56 @@ public class ControllerReportsRepinvt {
 	       servRRTTB.LapMasterBatchWIP(brcode, period, response);
 	    }
 	 
+	 @GetMapping("/closeinv/runkartubaku")
+		public ResponseEntity<Resource> runKartuBaku(@RequestParam String awal, String akhir) {
+		    	String temp = servRRTTB.runKartuBaku(awal, akhir);
+		    	System.out.println("BBB : "+temp);
+		    	String filename="KARTU STOCK BAKU "+awal.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {
+		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
+	 
+	 @GetMapping("/closeinv/runkartukemas")
+		public ResponseEntity<Resource> RunKartuKemas(@RequestParam String awal, String akhir) {
+		    	String temp = servRRTTB.runKartuKemas(awal, akhir);
+		    	String filename="KARTU STOCK KEMAS "+awal.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {
+		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
 	
 
 }
