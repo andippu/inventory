@@ -3,6 +3,7 @@ package com.invrepo.invrp.services;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -150,6 +151,29 @@ public class ServiceReportsRepInv {
 		return repoRBM.runKartuKemas(awal, akhir);
 	}
  
+	public String runLapStockBaku(String awal, String akhir) {
+		return repoRBM.runLapStockBaku(awal, akhir);
+	}
+	
+	public String runLapStockKemas(String awal, String akhir) {
+		return repoRBM.runLapStockKemas(awal, akhir);
+	}
+	
+	public String runSetData(String akhir) {
+		return repoRBM.runSetData(akhir);
+	}
+	
+	public String runRevisiBatch(String akhir) {
+		return repoRBM.runRevisiBatch(akhir);
+	}
+	
+	public String runLapHPP(String akhir, BigDecimal biaya) {
+		return repoRBM.runLapHPP(akhir, biaya);
+	}
+	
+	public String runLapRendemen(String akhir) {
+		return repoRBM.runLapRendemen(akhir);
+	}
 	
 
 }

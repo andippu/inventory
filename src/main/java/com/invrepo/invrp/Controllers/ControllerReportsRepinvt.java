@@ -17,6 +17,7 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperPrint;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.DateFormat;
@@ -127,7 +128,6 @@ public class ControllerReportsRepinvt {
 	 @GetMapping("/closeinv/runkartubaku")
 		public ResponseEntity<Resource> runKartuBaku(@RequestParam String awal, String akhir) {
 		    	String temp = servRRTTB.runKartuBaku(awal, akhir);
-		    	System.out.println("BBB : "+temp);
 		    	String filename="KARTU STOCK BAKU "+awal.substring(3, 10)+".xml";
 		    	String fl=filename.replace("/","");
 		    	System.out.println("aaaaa : "+fl);
@@ -174,6 +174,115 @@ public class ControllerReportsRepinvt {
 		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 		        }
 		}
+	 
+	 @GetMapping("/closeinv/runlapstockbaku")
+		public ResponseEntity<Resource> runlapstockBaku(@RequestParam String awal, String akhir) {
+		    	String temp = servRRTTB.runLapStockBaku(awal, akhir);
+		    	String filename="LAPORAN STOCK BAKU "+awal.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {
+		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
+	 
+	 @GetMapping("/closeinv/runlapstockkemas")
+		public ResponseEntity<Resource> RunLapStockKemas(@RequestParam String awal, String akhir) {
+		    	String temp = servRRTTB.runLapStockKemas(awal, akhir);
+		    	String filename="LAPORAN STOCK KEMAS "+awal.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {
+		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
+	 
+	 @GetMapping("/closeinv/runsetdata")
+	 public String runSetData(String akhir) {
+			return servRRTTB.runSetData(akhir);
+		}
+	 
+	 @GetMapping("/closeinv/runrevisibatch")
+	 public String runRevisiBatch(String akhir) {
+			return servRRTTB.runRevisiBatch(akhir);
+		}
 	
+	 @GetMapping("/closeinv/runlaphpp")
+		public ResponseEntity<Resource> RunLapHPP(@RequestParam  String akhir, BigDecimal biaya) {
+		    	String temp = servRRTTB.runLapHPP(akhir, biaya);
+		    	String filename="LAPORAN HPP "+akhir.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {
+		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
+	 
+	 @GetMapping("/closeinv/runlapRendemen")
+		public ResponseEntity<Resource> RunLapRendemen(@RequestParam  String akhir) {
+		    	String temp = servRRTTB.runLapRendemen(akhir);
+		    	String filename="LAPORAN RENDEMEN "+akhir.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {
+		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
 
 }

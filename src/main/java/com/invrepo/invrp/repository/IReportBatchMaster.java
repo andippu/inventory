@@ -1,5 +1,6 @@
 package com.invrepo.invrp.repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +24,24 @@ public interface IReportBatchMaster  extends JpaRepository <ReportBatchMaster, R
 	
 	@Procedure(procedureName = "GET_EXCEL_KEMAS")
 	String runKartuKemas(String awal, String akhir);
+	
+	@Procedure(procedureName = "LAPORAN_STOCK_BAHAN_BAKU")
+	String runLapStockBaku(String awal, String akhir);
+	
+	@Procedure(procedureName = "LAPORAN_STOCK_BAHAN_KEMAS")
+	String runLapStockKemas(String awal, String akhir);
+	
+	@Procedure(procedureName = "BEFORE_HPP")
+	String runSetData(String akhir);
+	
+	@Procedure(procedureName = "REVISI_TOTAL_BATCH")
+	String runRevisiBatch(String akhir);
+	
+	@Procedure(procedureName = "LAPORAN_HPP")
+	String runLapHPP(String akhir, BigDecimal biaya);
+	
+	@Procedure(procedureName = "LAPORAN_RENDEMEN")
+	String runLapRendemen(String akhir);
 	
 	
 }
