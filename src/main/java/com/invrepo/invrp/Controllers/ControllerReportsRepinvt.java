@@ -284,5 +284,125 @@ public class ControllerReportsRepinvt {
 		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 		        }
 		}
+	 
+	 @GetMapping("/closeinv/runlapwip")
+		public ResponseEntity<Resource> RunLapWip(@RequestParam  String akhir) {
+		    	String temp = servRRTTB.runLapWip(akhir);
+		    	String filename="LAPORAN WIP "+akhir.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
+	 
+	 @GetMapping("/closeinv/runlappoj")
+		public ResponseEntity<Resource> RunLapPoj(@RequestParam  String akhir) {
+		    	String temp = servRRTTB.runLapPoj(akhir);
+		    	String filename="LAPORAN POJ "+akhir.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
+	 
+	 @GetMapping("/closeinv/runlaphpprepack")
+		public ResponseEntity<Resource> RunLapHppRepack(@RequestParam  String akhir) {
+		    	String temp = servRRTTB.runLapHppRepack(akhir);
+		    	String filename="LAPORAN HPP REPACK "+akhir.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
+	 
+	 @GetMapping("/closeinv/runtutupbulan")
+	 public String runTutupBulan(String akhir) {
+			return servRRTTB.runTutupBulan(akhir);
+	}
+	 
+	 @GetMapping("/closeinv/runlapbakuhist")
+		public ResponseEntity<Resource> RunLapbakuhist(@RequestParam  String akhir) {
+		    	String temp = servRRTTB.runLapHppRepack(akhir);
+		    	String filename="LAPORAN HPP REPACK "+akhir.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
+	 
+	 @GetMapping("/closeinv/runlapkemashist")
+		public ResponseEntity<Resource> RunLapkemashist(@RequestParam  String akhir) {
+		    	String temp = servRRTTB.runKemasHist(akhir);
+		    	String filename="LAPORAN HPP REPACK "+akhir.substring(3, 10)+".xml";
+		    	String fl=filename.replace("/","");
+		    	System.out.println("aaaaa : "+fl);
+		        try {		        	
+		            Path filePath = fileStorageLocation.resolve(fl).normalize();
+		            Resource resource = new UrlResource(filePath.toUri());
+		            if (resource.exists()) {
+		                String contentType = "application/octet-stream";
+		                return ResponseEntity.ok()
+		                        .contentType(org.springframework.http.MediaType.parseMediaType(contentType))
+		                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+		                        .body(resource);
+		            } else {
+		                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		            }
+		        } catch (IOException ex) {
+		            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		        }
+		}
 
 }

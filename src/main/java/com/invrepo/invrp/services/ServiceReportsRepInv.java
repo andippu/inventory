@@ -175,5 +175,29 @@ public class ServiceReportsRepInv {
 		return repoRBM.runLapRendemen(akhir);
 	}
 	
+	public String runLapWip(String akhir) {
+		return repoRBM.runLapWip(akhir);
+	}
+	
+	public String runLapPoj(String akhir) {
+		return repoRBM.runLapPoj(akhir);
+	}
+	
+	public String runLapHppRepack(String akhir) {
+		return repoRBM.runLapHppRepack(akhir);
+	}
+	
+	public String runTutupBulan(String akhir) {
+		return repoRBM.runTutupBulan(akhir);
+	}
+	
+	public String runBakuHist(String akhir) {
+		return repoRBM.runBakuHist(akhir);
+	}
+	
+	public String runKemasHist(String akhir) {
+		return repoRBM.runKemasHist(akhir);
+	}
+	
 
 }

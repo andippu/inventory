@@ -43,5 +43,23 @@ public interface IReportBatchMaster  extends JpaRepository <ReportBatchMaster, R
 	@Procedure(procedureName = "LAPORAN_RENDEMEN")
 	String runLapRendemen(String akhir);
 	
+	@Procedure(procedureName = "LAPORAN_WIP")
+	String runLapWip(String akhir);
+	
+	@Procedure(procedureName = "LAPORAN_POJ")
+	String runLapPoj(String akhir);
+	
+	@Procedure(procedureName = "LAPORAN_HPP_REPACK")
+	String runLapHppRepack(String akhir);
+	
+	@Procedure(procedureName = "TUTUP_BULAN")
+	String runTutupBulan(String akhir);
+	
+	@Procedure(procedureName = "GET_EXCEL_BAKU_HIST")
+	String runBakuHist(String akhir);
+	
+	@Procedure(procedureName = "GET_EXCEL_KEMAS_HIST")
+	String runKemasHist(String akhir);
+	
 	
 }
